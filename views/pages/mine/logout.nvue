@@ -1,0 +1,182 @@
+<template>
+  <view class="logout-box" :style="{ height: windowHeight + 'px' }">
+    <Inav title="设置" :Custom="true" @Custom_Event="Custom_Event"></Inav>
+    <view class="content-box" v-for="(subList, index) in list" :key="index">
+      <Tcol
+        v-for="(item, subIndex) in subList"
+        :key="subIndex"
+        :data="item"
+        :custom-class="subIndex == subList.length - 1 ? 'is_no_border' : ''"
+        @editClick="clickEdit"
+      ></Tcol>
+    </view>
+    <view class="out_box" @click="clickLogout">
+      <text class="out_btn">退出登录</text>
+    </view>
+  </view>
+
+  <!-- 退出提示框 -->
+  <Imodal
+    ref="logoutDialog"
+    content="确认退出账号吗？"
+    @close="logoutClose"
+    @confirm="logoutConfirm"
+  ></Imodal>
+</template>
+<script setup lang="ts">
+import { ref, computed } from "vue";
+import { onLoad } from "@dcloudio/uni-app";
+import Tcol from "@/views/components/t-col.nvue";
+import Inav from "@/views/components/i-nav.nvue";
+import Imodal from "@/views/components/i-modal.vue";
+import uerStore2 from "@/business/store/index";
+import uerStore from "@/business/store/modules/mine";
+import { mineApi } from "@/business/api/index.ts";
+import { switchTab } from "@/infrastructure/utils/system";
+
+const store = uerStore();
+const store2 = uerStore2();
+const windowHeight = store2.windowHeight;
+const statusBarHeight = store2.$statusBarHeight;
+const loading = ref(false);
+// 列表数据
+const set_data = [
+  [
+    { name: "account_securec", title: "账号安全" },
+    { name: "real_name_authentication", title: "实名认证" },
+    { name: "address_managec", title: "地址管理" },
+  ],
+  [
+    { name: "privacy_set", title: "隐私设置" },
+    { name: "privacy_policy", title: "隐私政策" },
+    { name: "about_mine", title: "关于我们" },
+  ],
+];
+// 列表
+const list = ref(set_data);
+const logoutDialog = ref();
+
+onLoad(() => {
+  /* #ifdef APP-PLUS */
+  // uni.setStatusBarStyle({
+  //     style: 'dark' // 'light' 表示浅色文字，适用于深色背景；'dark' 表示深色文字，适用于浅色背景
+  // });
+  /* #endif */
+});
+
+const urls = {
+  account_securec: "/views/pages/mine/pages/account_securec",
+  // "account-secure": "/views/pages/account-secure/index",
+  real_name_authentication: "/views/pages/mine/pages/real_name_authentication",
+  address_managec: "/views/pages/mine/pages/address_managec",
+  privacy_set: "/views/pages/mine/pages/privacy_set",
+  privacy_policy: "/views/pages/mine/pages/privacy_policy",
+  about_mine: "/views/pages/mine/pages/about_mine",
+};
+
+// 列表每一项点击
+async function clickEdit({ name }) {
+  if (name === "real_name_authentication") {
+    // 是否已实名
+    let res = await mineApi.isRealName();
+    if (res && res.code === 200) {
+      if (res.data.is_real) {
+        uni.showToast({
+          icon: "none",
+          title: "您已实名认证",
+        });
+        return;
+      }
+    }
+  }
+  uni.navigateTo({
+    url: urls[name],
+  });
+}
+
+async function logout() {
+  if (loading.value) return;
+  const middle_token = uni.getStorageSync("middle_token");
+  if (!middle_token) return;
+  loading.value = true;
+  try {
+    await store.logoutApi({ middle_token });
+    // 提示修改成功
+    uni.showToast({
+      title: "退出成功",
+      duration: 1000,
+    });
+
+    setTimeout(() => {
+      loading.value = false;
+      // 页面跳转
+      uni.switchTab({
+        url: "/views/pages/mine/index",
+      });
+      // switchTab("/views/pages/mine/index");
+    }, 1000);
+  } catch (e) {
+    uni.showToast({
+      title: "退出失败",
+      icon: "error",
+      duration: 1000,
+    });
+    loading.value = false;
+  }
+}
+
+// 点击退出
+function clickLogout() {
+  logoutDialog.value.open();
+}
+
+// 退出提示取消
+function logoutClose() {
+  logoutDialog.value.close();
+}
+
+// 退出提示确认
+function logoutConfirm() {
+  logoutClose();
+  logout();
+}
+
+// 回到设置页
+const Custom_Event = () => {
+  console.log(111)
+  uni.switchTab({
+    url: "/views/pages/mine/index",
+  });
+};
+</script>
+
+<style lang="less" scoped>
+.logout-box {
+  background: #fbfbfb;
+  position: relative;
+}
+.content-box {
+  margin-top: 16rpx;
+  padding: 0 32rpx 0;
+  background: #fff;
+}
+.out_box {
+  // margin: 0 32rpx;
+  background: #fff;
+  position: absolute;
+  bottom: 80rpx;
+  left: 32rpx;
+  right: 32rpx;
+  height: 104rpx;
+  text-align: center;
+  border-radius: 16rpx;
+}
+.out_btn {
+  color: #ff4218;
+  font-size: 28rpx;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 104rpx;
+  text-align: center;
+}
+</style>

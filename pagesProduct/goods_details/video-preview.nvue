@@ -1,0 +1,99 @@
+<template>
+	<view class="preview_wrap" :style="{ height: window_height + 'px' }">
+        <Inav title="视频预览" v-if="!is_full">
+        </Inav>
+        <swiper
+            :style="{ height: (window_height - status_bar_height - 44) + 'px' }"
+            class="img_swiper"
+            :indicator-dots="false"
+            :autoplay="false"
+            :circular="true"
+            :current="current"
+            @change="handleChange">
+            <swiper-item v-for="(item, index) in list" :key="index" class="s_item flex flex-ac" :style="{ height: (window_height - status_bar_height - 44) + 'px' }">
+                <image :src="item.url" class="slide_image" mode="widthFix"  :style="{ width: window_width + 'px' }" v-if="item.type == 'image'"/>
+                <video @fullscreenchange="fullscreenchange" :autoplay="true" :src="item.url" :poster="item.cover_img" class="slide_image" :style="{ width: window_width + 'px' }" v-else></video>
+            </swiper-item>
+        </swiper>
+	</view>
+
+</template>
+
+
+<script setup lang="ts">
+
+import  {ref, computed}  from "vue" 
+import { onLoad, onShow, onReady, onInit, onHide } from "@dcloudio/uni-app";
+import Inav from "@/views/components/i-nav.nvue";
+import Imodal from "@/views/components/i-modal.vue";
+
+const window_height = uni.getSystemInfoSync().windowHeight;
+const window_width = uni.getSystemInfoSync().screenWidth;
+const status_bar_height = uni.getSystemInfoSync().statusBarHeight;
+
+// 资源列表
+const list = ref([]);
+// 当前展示图片下标
+const current = ref(0);
+const delDialog = ref();
+// 当前预览key
+let key;
+// 是否全屏
+const is_full = ref(false)
+
+// 存储资源的key
+onLoad((op) => {
+    key = op.key;
+    const index = op.index;
+    if (!key || !index) {
+        uni.navigateBack();
+        return;
+    }
+    const data = uni.getStorageSync(key);
+    if (data && data.imgList && data.imgList.length) {
+        list.value = data.imgList;
+    } 
+    current.value = index;
+})
+
+const title = computed(() => {
+    if (list.value && list.value.length) {
+        console.log("list.value---->", list.value, current.value);
+        return `${(Number(current.value) + 1)}/${list.value.length}`;
+    }
+    return "0/0";
+})
+
+function handleChange(e) {
+    console.log(`当前切换到第 ${e.detail.current + 1} 张图片`);
+    current.value = e.detail.current;
+}
+
+function back() {
+    uni.navigateBack();
+}
+
+// 进入或退出全屏监听
+function fullscreenchange(e) {
+    is_full.value = e.detail.fullScreen
+}
+
+
+
+
+</script>
+
+<style lang="less" scoped>
+.preview_wrap {
+
+}
+.p_del {
+    width: 40rpx;
+    height: 40rpx;
+}
+.img_swiper {}
+.s_item {
+    background: #111;
+}
+.slide_image {}
+</style>

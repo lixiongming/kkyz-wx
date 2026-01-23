@@ -1,0 +1,91 @@
+<template>
+  <view class="feature-box">
+    <view style="marginBottom:20rpx"> <commodityCard :mer_info="props.mer_info" @loginCallback="loginCallback"  :list="props.info.mount_product" :width="540" :height="132" :type="1" ></commodityCard></view>
+    <view class="user-info flex flex-ac">
+      <view class="user-info-right">
+        <view class="user-name">
+          <text class="text">@{{ props.info.nickname }}</text></view
+        >
+      </view>
+    </view>
+    <view class="video-des">
+      <text class="text nowrap-line2">{{ props.info.title }}</text>
+    </view>
+  </view>
+</template>
+
+<script setup lang="ts">
+const props = defineProps(["info","mer_info"]);
+import uerStore from "@/business/store/modules/home.ts";
+import { imgUrlEvent } from "@/infrastructure/utils/imgUrls";
+import commodityCard from "./commodity-card.vue";
+const emit = defineEmits(["follow_user_Event",'loginCallback']);
+const store = uerStore();
+
+ function loginCallback() {
+   emit('loginCallback',true)
+ }
+
+</script>
+
+<style lang="less" scoped>
+.location-box {
+  width: 236rpx;
+  height: 56rpx;
+  flex-shrink: 0;
+  border-radius: 8rpx;
+  background: rgba(106, 106, 106, 0.502);
+  margin-top: 14rpx;
+  .iconimg2 {
+    width: 36rpx;
+    height: 36rpx;
+    margin-left: 12rpx;
+    margin-right: 10rpx;
+  }
+  .text {
+    color: #fff;
+    font-size: 24rpx;
+  }
+
+  .text2 {
+    margin: 0px 10rpx;
+  }
+}
+
+.feature-box {
+  position: absolute;
+  bottom: 96rpx;
+  left: 34rpx;
+  z-index: 100;
+}
+
+.video-des {
+  width: 540rpx;
+  line-height: normal;
+
+  .text {
+    color: #ffffff;
+    font-family: "PingFang HK";
+    font-size: 30rpx;
+  }
+}
+
+.user-info {
+  margin-bottom: 24rpx;
+  .text {
+    color: #ffffff;
+    font-size: 32rpx;
+  }
+}
+
+.user-info-right {
+  // margin-left: 24rpx;
+}
+.user-time {
+  margin-top: 24rpx;
+  color: #fff;
+  .text {
+    font-size: 24rpx;
+  }
+}
+</style>

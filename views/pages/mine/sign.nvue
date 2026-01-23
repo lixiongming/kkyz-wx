@@ -1,0 +1,617 @@
+<template>
+  <view
+    :style="{ height: hei + 'px' }"
+    class="sign-wrap flex flex-column flex-ac"
+  >
+    <scroll-view
+      :scroll-y="true"
+      class="scroll"
+      :style="{ height: hei + 'px' }"
+    >
+      <view class="mine flex flex-ac flex-column">
+        <view class="header" :style="{ paddingTop: statusHeight + 50 + 'px' }">
+          <view class="title">
+            <text class="text1">注册账号</text>
+          </view>
+          <u-icon
+            name="arrow-leftward"
+            color="#111111"
+            size="24"
+            class="set_img"
+            @click="backPage"
+          ></u-icon>
+        </view>
+        <view class="input-box">
+          <text class="text1">手机号</text>
+          <input
+            type="text"
+            placeholder="请输入手机号"
+            class="input"
+            @input="inputphone"
+            @blur="blurphone"
+            placeholder-style="color:#ccc"
+          />
+          <text class="text1">验证码</text>
+          <view class="Verification-code">
+            <input
+              type="text"
+              placeholder="请输入验证码"
+              class="verification-code-inp"
+              @input="inputCode"
+              placeholder-style="color:#ccc"
+            />
+            <text class="get-code" @click="handleVerify" v-if="!codeFlag"
+              >获取验证码</text
+            >
+            <text class="get-code" @click="handleVerify" v-else
+              >{{ codeTime }}s</text
+            >
+          </view>
+          <text class="text1">登录密码</text>
+          <input
+            type="password"
+            placeholder="请输入登录密码"
+            class="input"
+            @input="inputpassword"
+            placeholder-style="color:#ccc"
+          />
+          <text class="text1" v-if="isinvite_code">邀请码（选填）</text>
+          <input
+            type="text"
+            placeholder="请输入邀请码"
+            class="input"
+            @input="inputinvite_code"
+            :value="fromVle.invite_code"
+            placeholder-style="color:#ccc"
+            v-if="isinvite_code"
+          />
+        </view>
+        <checkbox-group
+          class="checkbox-content flex flex-ac"
+          @change="checkboxEvent"
+        >
+          <checkbox
+            class="checkbox"
+            style="transform: scale(0.7)"
+            activeBackgroundColor="#111111"
+            value="r1"
+            color="#FF6A00"
+            iconColor="#FF6A00"
+            :checked="fromVle.isagreement"
+          />
+          <text class="text1" @click="checkLabelClick">我已阅读并同意</text>
+          <!-- <text class="text1 text2"
+            >《用户协议》、《隐私政策》</text> -->
+          <text class="text1 text2" @click="lookagreement('user_agreement')"
+            >《用户协议》</text
+          >
+          <text class="text1 text2">、</text>
+          <text class="text1 text2" @click="lookagreement('privacy_agreement')"
+            >《隐私政策》</text
+          >
+        </checkbox-group>
+
+        <view
+          class="login-btn flex flex-ac jc-ct"
+          @click="register"
+          :class="{
+            'login-btn-active':
+              fromVle.password &&
+              fromVle.code &&
+              fromVle.mobile &&
+              fromVle.isagreement,
+          }"
+          ><text class="text1">注册</text></view
+        >
+      </view>
+    </scroll-view>
+    <view class="flex Sign"
+      ><text class="text1">没有账号？</text
+      ><text class="text1 text2" @click="topage('login')">去登录</text></view
+    >
+  </view>
+  <uni-popup
+    ref="popup"
+    type="bottom"
+    border-radius="10px 10px 0 0"
+    :safe-area="false"
+    background-color="#fff"
+  >
+    <view class="popup-wrap">
+      <scroll-view :scroll-y="true" class="scroll-box" :show-scrollbar="false">
+        <view class="popup-box">
+          <text class="agreement-text">{{ lookTxt }}</text>
+        </view>
+      </scroll-view>
+    </view>
+  </uni-popup>
+    <Verify
+    @success="successVerify"
+    :captchaType="'blockPuzzle'"
+    :imgSize="{ width: '288px', height: '155px' }"
+    ref="verifyEl"
+  ></Verify>
+</template>
+
+<script setup lang="ts">
+import { ref, onMounted } from "vue";
+import { onLoad, onShow, onReady, onInit, onHide,onUnload } from "@dcloudio/uni-app";
+import uerStore from "@/business/store/modules/mine";
+import { mineApi } from "@/business/api/index.ts";
+import Verify from "@/views/components/verify/verify.vue";
+import mission_use_store from '/views/pages/save-money/store/modules/mission.ts'
+import mission_api from '/views/pages/save-money/api/modules/mission.ts'
+const store = uerStore();
+const mission_store = mission_use_store();
+const currentTabs = ref(0);
+const hei = uni.getSystemInfoSync().windowHeight;
+const statusHeight = uni.getSystemInfoSync().statusBarHeight;
+const tabsList = ref([
+  { name: "密码登录", id: 1 },
+  { name: "验证码登录", id: 2 }, 
+]);
+const codeTime = ref(60);
+const codeFlag = ref(false);
+const isinvite_code = ref(false);
+const captchaVerification=ref('')
+const verifyEl=ref()
+onLoad(() => {});
+var zz = /^1\d{10}$/;
+const fromVle = ref({
+  mobile: "",
+  password: "",
+  isagreement: false,
+  code: "",
+  invite_code: uni.getStorageSync('invite_code'),
+});
+
+const popup = ref();
+
+// 《用户协议》 《隐私政策》 内容
+const agreementInfo = ref(store.agreementInfo);
+
+// 查看内容
+const lookTxt = ref("");
+
+//切换视频地址
+const changeTabs = (data: number) => {
+  currentTabs.value = data;
+};
+
+// 手机input输入
+const inputphone = (e) => {
+  fromVle.value.mobile = e.detail.value;
+};
+const inputpassword = (e) => {
+  fromVle.value.password = e.detail.value;
+};
+
+const inputCode = (e) => {
+  fromVle.value.code = e.detail.value;
+};
+const inputinvite_code = (e) => {
+  fromVle.value.invite_code = e.detail.value;
+};
+const checkboxEvent = (e) => {
+  console.log(e);
+  if (e.detail.value.length > 0) {
+    fromVle.value.isagreement = true;
+  } else {
+    fromVle.value.isagreement = false;
+  }
+};
+
+//点击文字选中
+const checkLabelClick = () => {
+  fromVle.value.isagreement = !fromVle.value.isagreement;
+};
+
+const lookagreement = async (type) => {
+  const { privacy_agreement, user_agreement } = agreementInfo.value;
+  if (!privacy_agreement || !user_agreement) {
+    // 请求
+    const { data } = await mineApi.getAgreementApi();
+    agreementInfo.value = data;
+    console.log("data-->", data);
+  }
+  console.log("agreementInfo.value", agreementInfo.value);
+  lookTxt.value = agreementInfo.value[type]
+    .replace(/<p>/g, "")
+    .replace(/<\/p>/g, "")
+    .replace(/<br>/g, "\n");
+  popup.value.open("bottom");
+};
+
+// 验证是否为新手机
+const blurphone = async () => {
+  const { mobile } = fromVle.value;
+  if (!mobileCheck(true)) return;
+  await store.is_new_mobileApi({ mobile });
+  isinvite_code.value = store.is_new;
+};
+
+// 手机号校验
+function mobileCheck(isNoTip) {
+  let flag = true;
+  if (!zz.test(fromVle.value.mobile)) {
+    let title = "请输入手机号";
+    let mobile = fromVle.value.mobile && fromVle.value.mobile.trim();
+    if (mobile) {
+      title = "请输入正确的手机号";
+    }
+    if (!isNoTip) {
+      uni.showToast({
+        title,
+        duration: 2000,
+        icon: "none",
+      });
+    }
+    flag = false;
+  } else {
+  }
+  return flag;
+}
+
+let timer = ref('')
+
+// 获取验证码
+const getCode = async () => {
+  if (!mobileCheck()) return;
+  const { password, mobile, code, invite_code } = fromVle.value;
+  
+  try {
+    await store.sendSmsApi({ mobile, event: "register" ,captchaVerification:captchaVerification.value});
+    uni.showToast({
+      title: "验证码发送成功",
+      duration: 2000,
+    });
+  } catch (e) {
+    if (e && e.code === 1000) {
+      uni.showToast({
+        icon: "none",
+        title: "账号已注册，可直接登录",
+        duration: 2000,
+      });
+      // 已注册跳转登录页
+      timer.value = setTimeout(() => {
+        topage("login");
+      }, 2000);
+    }
+    return;
+  }
+  codeFlag.value = true;
+  let time = setInterval(() => {
+    if (codeTime.value == 1) {
+      clearInterval(time);
+      codeFlag.value = false;
+      codeTime.value = 60;
+    }
+    codeTime.value -= 1;
+  }, 1000);
+};
+
+const register = async () => {
+  if (!mobileCheck()) return;
+  if (!fromVle.value.code) {
+    uni.showToast({
+      title: "请输入验证码",
+      duration: 2000,
+      icon: "none",
+    });
+    return;
+  }
+  if (!fromVle.value.password) {
+    uni.showToast({
+      title: "请输入密码",
+      duration: 2000,
+      icon: "none",
+    });
+    return;
+  }
+  if (!fromVle.value.isagreement) {
+    uni.showToast({
+      title: "请先同意并勾选协议",
+      duration: 2000,
+      icon: "none",
+    });
+    return;
+  }
+  const { password, mobile, code, invite_code } = fromVle.value;
+  try {
+    const data = await store.registerApi({ mobile, password, code, invite_code });
+    if (!mission_store.expert_parent_code) {
+      uni.showToast({
+        title: "注册成功",
+        duration: 2000,
+      });
+    }
+    
+    data.token && bindExpertUserCode(data.token)
+    topage("login");
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+// 绑定达人分销码上下级关系
+async function bindExpertUserCode(token) {
+    let expert_user_code = mission_store.expert_parent_code;
+    if (expert_user_code) {
+        const { data } = await mission_api.bindExpertUserCodeApi({ parent_expert_user_code: expert_user_code }, { Authorization: "Bearer " +  token });
+        if (data.tip_msg) {
+            uni.showToast({
+                title: `注册成功，${data.tip_msg}`,
+                icon: 'none'
+            });
+        }
+        // 绑定完成，删除上级分销code
+        mission_store.expert_parent_code = '';
+    }
+}
+
+const topage = (data) => {
+  // let url = "";
+  // switch (data) {
+  //   case "login":
+  //     url = "/views/pages/mine/login";
+  //     break;
+  // }
+  // uni.navigateTo({
+  //   url: url,
+  // });
+  uni.navigateBack()
+};
+
+const backPage = () => {
+  uni.navigateBack({
+    delta: 1,
+  });
+};
+
+// 图形校验成功
+const successVerify=(data:any)=>{
+  captchaVerification.value=data.captchaVerification
+	verifyEl.value.hide();
+  getCode()
+}
+
+onUnload(() => {
+  timer.value && clearTimeout(timer.value)
+})
+
+// 开始图形滑块校验
+const handleVerify=()=> {
+   if (!mobileCheck()) return;
+   console.log("2")
+   if (codeFlag.value) return;
+   console.log("3")
+    verifyEl.value.show()
+}
+</script>
+
+<style lang="less" scoped>
+.popup-wrap {
+  width: 750rpx;
+  height: 800rpx;
+  box-sizing: border-box;
+  padding: 20rpx;
+  background-color: #fff;
+  border-radius: 20rpx 20rpx 0px 0px;
+}
+.scroll-box {
+  height: 760rpx;
+}
+.agreement-text {
+  font-size: 28rpx;
+}
+.sign-wrap {
+  position: relative;
+}
+.login-btn-active {
+  opacity: 1 !important;
+  background: linear-gradient(to left, #FF182E, #FF9D21) !important;
+}
+
+.get-code {
+  width: 120px;
+  color: #ff6a00;
+  height: 88rpx;
+  line-height: 88rpx;
+  text-align: right;
+  padding-right: 32rpx;
+}
+
+.Verification-code {
+  width: 622rpx;
+  height: 88rpx;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  background: #f5f6f6;
+  border-radius: 16rpx;
+  margin-bottom: 32rpx;
+  margin-top: 16rpx;
+}
+.input-box {
+  width: 622rpx;
+}
+.input {
+  width: 622rpx;
+  height: 88rpx;
+  flex-shrink: 0;
+  // border: 1px solid red;
+  border-radius: 16rpx;
+  background: #f5f6f6;
+  margin-bottom: 32rpx;
+  padding-left: 32rpx;
+}
+.verification-code-inp {
+  flex: 1;
+  flex-shrink: 0;
+  height: 88rpx;
+  padding-left: 32rpx;
+}
+.Sign {
+  // position: relative;
+  // margin-top: 250rpx;
+  // margin-bottom: 110rpx;
+  position: absolute;
+  bottom: 110rpx;
+}
+// .Sign {
+//   position: absolute;
+//   bottom: 110rpx;
+//   // margin-top: 456rpx;
+//   // margin-bottom: 110rpx;
+// }
+.login-btn {
+  width: 622rpx;
+  height: 88rpx;
+  flex-shrink: 0;
+  border-radius: 16rpx;
+  // background: rgba(0, 194, 255, 0.5);
+  background: linear-gradient(to left, #FF182E, #FF9D21);
+  opacity: 0.5;
+  margin-top: 78rpx;
+  .text1 {
+    font-size: 32rpx;
+    color: #fff;
+  }
+}
+.text1 {
+  font-size: 26rpx;
+  color: #111111;
+}
+.text2 {
+  color: #ff6a00 !important;
+}
+.checkbox-content {
+  width: 622rpx;
+  margin-top: 16rpx;
+  .text1 {
+    color: #111111;
+    font-family: "PingFang SC";
+    font-size: 24rpx;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+}
+.input {
+  width: 622rpx;
+  height: 88rpx;
+  flex-shrink: 0;
+  border-radius: 16rpx;
+  background: #f5f6f6;
+  margin-bottom: 32rpx;
+  padding-left: 32rpx;
+  margin-top: 16rpx;
+}
+.title {
+  position: absolute;
+  top: 240rpx;
+  left: 64rpx;
+  z-index: 2;
+  .text1 {
+    color: #111111;
+    font-family: "PingFang SC";
+    font-size: 48rpx;
+    font-style: normal;
+    font-weight: 600;
+    line-height: normal;
+    // margin-top: 240rpx;
+    // margin-left: 64rpx;
+  }
+}
+.mine {
+  position: relative;
+  width: 750rpx;
+}
+.scroll {
+  width: 750rpx;
+  background: #fff;
+  overflow: auto;
+}
+
+/deep/ .uni-nav-bar-text.uni-ellipsis-1 {
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
+  font-size: 36rpx;
+  color: #1e1f20;
+  text-align: center;
+  line-height: 48rpx;
+}
+
+.header {
+  position: relative;
+  width: 750rpx;
+  height: 335rpx;
+  // background-image: url("../../../static/images/mine/bg.png");
+  // background-size: 100% 100%;
+  margin-bottom: 48rpx;
+}
+
+.header_bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 750rpx;
+  height: 440rpx;
+  z-index: 1;
+}
+
+::v-deep .u-icon {
+  position: absolute;
+  top: 108rpx;
+  left: 42rpx;
+  width: 48rpx;
+  height: 48rpx;
+  z-index: 99;
+}
+
+.Sliding {
+  position: absolute;
+  width: 48rpx;
+  height: 6rpx;
+  border-radius: 8rpx;
+  background: #ff6a00;
+  // box-shadow: 0 2px 4px 0 #00000040;
+  top: 50rpx;
+  left: 14rpx;
+  transition-property: left;
+  transition-duration: 0.2s;
+}
+
+.header-tab {
+  position: relative;
+  padding-bottom: 88rpx;
+  width: 622rpx;
+}
+
+.tab-item {
+  margin-right: 64rpx;
+
+  .text {
+    color: #cccccc;
+    font-size: 28rpx;
+    font-weight: 600;
+  }
+}
+
+.tab-item-active {
+  .text {
+    color: #111111;
+    font-size: 32rpx;
+  }
+}
+
+.currentTabs0 {
+  left: 40rpx;
+}
+.currentTabs1 {
+  // transform: translateX(65rpx);
+  left: 230rpx;
+}
+</style>

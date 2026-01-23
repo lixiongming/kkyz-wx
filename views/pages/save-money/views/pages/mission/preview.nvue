@@ -1,0 +1,164 @@
+<template>
+	<view class="preview_wrap" :style="{ height: windowHeight + 'px' }">
+        <Inav :title="title" >
+            <template v-if="list.length && !isNoHasDel" v-slot:right>
+                <image class="p_del" :src="imgUrlEvent('/images/publish/preview_del.png')" @click="tipOpen" />
+            </template>
+        </Inav>
+        <swiper
+            :style="{ height: (windowHeight - statusBarHeight - 44 - 50) + 'px' }"
+            class="img_swiper"
+            :indicator-dots="false"
+            :autoplay="false"
+            :circular="true"
+            :current="current"
+            @change="handleChange">
+            <swiper-item v-for="(item, index) in list" :key="index" class="s_item flex flex-ac" :style="{ height: (windowHeight - statusBarHeight - 44 - 50) + 'px' }">
+                <scroll-view
+                    :scroll-y="true"
+                    :show-scrollbar="false"
+                    :style="{ height: (windowHeight - statusBarHeight - 44 - 50) + 'px' }"
+                >
+                <template v-if="item.type == 'image'">
+                    <block v-if="item.urls?.length > 1">
+                        <image v-for="(v, i) in item.urls" :src="v" class="slide_image" mode="widthFix"  :style="{ width: windowWidth + 'px' }" />
+                    </block>
+                    <image v-else :src="item.url" class="slide_image" mode="widthFix"  :style="{ width: windowWidth + 'px' }" />
+                </template>
+                <video :src="item.url" :poster="item.cover_img" class="slide_image" :style="{ width: windowWidth + 'px' }" v-else></video>
+                </scroll-view>
+            </swiper-item>
+        </swiper>
+	</view>
+
+    <!-- 删除提示 -->
+    <Imodal ref="delDialog" content="确认删除此内容？" @close="delClose" @confirm="delConfirm" ></Imodal>
+</template>
+
+
+<script setup lang="ts">
+import { imgUrlEvent } from "@/infrastructure/utils/imgUrls";
+import { isLength } from "html2canvas/dist/types/css/types/length";
+
+import  {ref, computed}  from "vue" 
+import uerStore from '@/business/store/modules/home' 
+import uerStore2 from "@/business/store/index";
+import { onLoad, onShow, onReady, onInit, onHide } from "@dcloudio/uni-app";
+import Inav from "@/views/components/i-nav.nvue";
+import Imodal from "@/views/components/i-modal.vue";
+
+const store2 = uerStore2();
+// #ifdef APP-PLUS
+const windowHeight = store2.windowHeight;
+// #endif
+// #ifdef H5 || MP-WEIXIN
+const windowHeight = uni.getSystemInfoSync().windowHeight;
+// #endif
+const windowWidth = store2.$windowWidth;
+// #ifdef APP-PLUS
+const statusBarHeight = store2.$statusBarHeight;
+// #endif
+// #ifdef H5 || MP-WEIXIN
+const statusBarHeight = uni.getSystemInfoSync().statusBarHeight;
+// #endif
+
+const $px = store2.$px;
+
+// 资源列表
+const list = ref([]);
+// 当前展示图片下标
+const current = ref(0);
+const delDialog = ref();
+// 当前预览key
+let key;
+// 是否显示删除按钮
+const isNoHasDel = ref(false);
+
+// 存储资源的key
+onLoad((op) => {
+    key = op.key;
+    const index = op.index;
+    if (!key || !index) {
+        uni.navigateBack();
+        return;
+    }
+    const data = uni.getStorageSync(key);
+    if (data && data.imgList && data.imgList.length) {
+        list.value = data.imgList;
+        console.log("list--->", list.value);
+    } 
+    current.value = index;
+    isNoHasDel.value = op.isHasDel || false;
+})
+
+const title = computed(() => {
+    if (list.value && list.value.length) {
+        console.log("list.value---->", list.value, current.value);
+        return `${(Number(current.value) + 1)}/${list.value.length}`;
+    }
+    return "0/0";
+})
+
+function handleChange(e) {
+    console.log(`当前切换到第 ${e.detail.current + 1} 张图片`);
+    current.value = e.detail.current;
+}
+
+function back() {
+    uni.navigateBack();
+}
+
+// 删除storage中的缓存数据
+function delStorageImgList(cList) {
+    const data = uni.getStorageSync(key);
+    data.imgList = cList;
+    uni.setStorageSync(key, data);
+}
+
+// 预览图删除
+function pDel() {
+    const index = current.value;
+    list.value.splice(index, 1);
+    delStorageImgList(list.value);
+    current.value = index - 1 < 0 ? 0 : index - 1;
+    console.log("+++current.value---->", current.value);
+    // 如果没有图片了，则直接返回之前的页面
+    if (list.value.length == 0) {
+        back();
+    }
+}
+
+// 提示打开
+function tipOpen() {
+    delDialog.value.open();
+}
+
+// 提示取消
+function delClose() {
+    delDialog.value.close();
+}
+
+// 提示确认
+function delConfirm() {
+    delClose();
+    pDel();
+}
+
+
+
+</script>
+
+<style lang="less" scoped>
+.preview_wrap {
+
+}
+.p_del {
+    width: 40rpx;
+    height: 40rpx;
+}
+.img_swiper {}
+.s_item {
+    background: #111;
+}
+.slide_image {}
+</style>

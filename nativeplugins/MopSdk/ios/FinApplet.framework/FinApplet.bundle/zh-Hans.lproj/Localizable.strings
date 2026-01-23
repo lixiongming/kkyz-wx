@@ -1,0 +1,432 @@
+"OK" = "确定";
+"Back" = "返回";
+"Done" = "完成";
+"Close" = "关闭";
+"Sorry" = "抱歉";
+"Cancel" = "取消";
+"Setting" = "设置";
+"Photos" = "照片";
+"Videos" = "视频";
+"Preview" = "预览";
+"Full image" = "原图";
+"Processing..." = "正在处理...";
+"Unable to load image" = "无法载入图片";
+"Unable to load video" = "无法载入视频";
+"Synchronizing photos from iCloud" = "正在从iCloud同步照片";
+"Synchronizing video from iCloud" = "正在从iCloud同步视频";
+"Can not choose both video and photo" = "选择照片时不能选择视频";
+"Can not choose both photo and GIF" = "选择照片时不能选择 GIF";
+"Select the video when in multi state, we will handle the video as a photo" = "多选状态下选择视频，默认将视频当图片发送";
+"Can not jump to the privacy settings page, please go to the settings page by self, thank you" = "无法跳转到隐私设置页面，请手动前往设置页面，谢谢";
+
+"Select a maximum of %zd photos" = "您最多只能选择%zd张照片";
+"Select a minimum of %zd photos" = "请至少选择%zd张照片";
+"Allow %@ to access your album in \"Settings -> Privacy -> Photos\"" = "请在iPhone的\"设置-隐私-照片\"选项中，\r允许%@访问您的手机相册";
+"Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\"" = "请在iPhone的\"设置-隐私-相机\"中允许%@访问相机";
+
+"Apply" = "申请";
+"Reject" = "拒绝";
+"Allow" = "允许";
+"Not Allow" = "不允许";
+
+"Use your calendar" = "使用您的日历";
+
+"Obtain your location info" = "获取您的位置信息";
+"Obtain your profile photo" = "读取设备上的照片及文件";
+"Access and save pictures or videos on device" = "保存图片或视频到您的相册";
+"Use your camera" = "使用您的摄像头";
+"Use your microphone" = "使用您的麦克风";
+"Use your bluetooth" = "使用您的蓝牙";
+"Use your addressBook" = "使用您的通讯录";
+"Obtain your phoneNumber" = "获取您的手机号码";
+"Obtain your userProfile" = "获取您的个人信息";
+
+"Selected for %ld seconds" = "已选取%lds";
+"Allow %@ to access your all photos" = "您已设置%@只能访问相册部分照片，建议允许访问「所有照片」";
+"Add more accessible photos" = "添加更多\n可访问照片";
+"Edit" = "编辑";
+
+"Loading failed, please try again later" = "加载失败，请稍后再试";
+
+"Forward To" = "转发";
+"Settings" = "设置";
+"Feedback" = "反馈与投诉";
+"Restart" = "重新进入\n%@";
+"Open Debug" = "打开调试";
+"Close Debug" = "关闭调试";
+"Share" = "分享";
+//"Wechat" = "微信好友";
+"Add Favorite" = "添加收藏";
+"Cancel Favorite" = "取消收藏";
+"Add To Desktop" = "添加到桌面";
+
+"Add Favorite Success" = "添加收藏成功";
+"Add Favorite Failure" = "添加收藏失败";
+"Cancel Favorite Success" = "取消收藏成功";
+"Cancel Favorite Failure" = "取消收藏失败";
+"Add to desktop failure" = "添加到桌面失败";
+
+"%@ Authorizations Management" = "%@授权管理";
+"Without using your personal information and authority" = "未使用您的个人信息与权限";
+"No %@" = "暂无%@";
+
+"Allow \"%@\" to use" = "允许“%@”使用";
+
+"\"%@\"does not use any permissions" = "\"%@\"未使用任何权限";
+
+"Search location" = "搜索地点";
+"Location" = "所在位置";
+"Not showing location" = "不显示位置";
+"Search nearby" = "搜索附近位置";
+"Office Building" = "写字楼";
+
+"User info" = "用户信息";
+"Location info" = "位置信息";
+"Background Location info" = "后台定位";
+"Mobile address book" = "通讯录";
+"Microphone" = "麦克风";
+"Camera" = "相机";
+"Album" = "相册";
+"Calendar" = "日历";
+"Buletooth" = "蓝牙";
+"QR Code" = "二维码/条码";
+"Phone" = "手机号";
+
+"About" = "关于";
+"Basic Info" = "基础信息";
+"Account Owner" = "账号主体";
+"Description" = "详细描述";
+"Version" = "版本号";
+"Notes" = "版本说明";
+"Labels" = "%@标签";
+"Global Privacy Statement" = "服务隐私及数据提示";
+"The developer of this Mini-App confirm that it has not processed any information of the user in any way. If there is any subsequent handling of user information, Mini-App Privacy Guidelines will be updated in a timely manner. If you find that the developer has mishandled your privacy information, you may click here to take a issue." = "本%@开发者承诺并保证，未以任何方式处理用户的任何信息。如后续有处理用户信息，会及时更新《%@隐私保护指引》，如果您发现开发者对您的隐私信息进行不当处理，可进行投诉。";
+"Statement of Service" = "服务声明";
+"statement and" = "和";
+"Developers handle your personal information in strict accordance with %@ Privacy Guidelines, and you may take a issue if  you find that a developer has mishandled your private information." = "开发者严格按照%@处理您的个人信息，如果您发现开发者对您的隐私信息进行不当处理，可进行%@。";
+"The Mini-App is provided to you by the developer, who assumes full responsibility for the authenticity, legality and validity of the information content, data material and its operation of this service." = "本%@服务由开发者向您提供，开发者对本服务信息内容、数据资料及其运营行为的真实性、合法性及有效性承担全部责任。";
+"Third-party user information authorization description" = "第三方用户信息授权说明";
+"%@ Privacy Guidelines" = "《%@隐私保护指引》";
+"Custom Privacy Guidelines" = "《%@》";
+"take a issue" = "投诉";
+"App disable feedback function" = "App 禁用了投诉反馈功能";
+"Customize Privacy Statement" = "您授权后，%@开发者（包括%@代开发服务商的开发者及%@中使用插件的开发者）将%@，为您提供相关服务。开发者严格按照%@处理您的个人信息，如您发现开发者不当处理您的个人信息，可进行%@。";
+"Default Privacy Statement" = "您授权后，%@开发者（包括%@代开发服务商的开发者及%@中使用插件的开发者）将%@，为您提供相关服务。开发者收集、存储、处理或使用用户隐私及数据，应当遵守网络安全法与个人信息保护规范等相关法律法规。若您认为开发者未遵守上述规定或存在其他侵害用户隐私或数据的情况，可进行%@。";
+" and %@ others" = "和其他%@个";
+
+//"Recents" = "最近";
+"Save Image" = "保存图片";
+"Save Video" = "保存视频";
+"Save" = "保存";
+
+"Effective after reopening" = "重新打开后生效";
+
+"Failed to get the picture" = "获取图片失败";
+"This device does not have an album" = "该设备无相册";
+"Failed to process image" = "处理图像失败";
+"No QR code/barcode found" = "未发现二维码/条码";
+"No QR code found" = "未发现二维码";
+"No barcode found" = "未发现条码";
+"No Data Matrix code found" = "未发现Data Matrix码";
+"No pdf417 code found" = "未发现pdf417码";
+"Only QR codes are supported below iOS 11" = "iOS 11以下只支持识别二维码";
+"Please tap to continue" = "请轻触继续";
+
+"Reload" = "重新加载";
+
+// title
+"Library download failed" = "基础库下载失败";
+"%@ download failed" = "%@下载失败";
+"Page no found" = "页面不存在";
+"Unregistered domain" = "非备案域名";
+"Blacklisted domain" = "黑名单域名";
+"Failed to obtain trial version" = "获取体验版本失败";
+
+// FATErrorCodeUnknown 90000
+"Unknown Error" = "未知错误";
+"Param is invalid" = "参数不合法";
+
+// 错码码10000+ 错误信息
+"SDK init failed" = "SDK初始化失败";
+"No network connection" = "网络无法连接，请检查网络是否畅通";
+"sdk configuration request failed" = "SDK配置信息请求失败";
+"Unsupported device type" = "设备类型暂不支持";
+"Usable device number limit" = "当前可用设备数量已达上限";
+"Domain check failed in SDK configuration" = "SDK配置中的域名校验失败";
+"QRCode format invalid" = "二维码格式不合法";
+"QRCode server could not match initialized storeConfigs" = "当前二维码所属环境与SDK初始化不匹配";
+
+// 错码码11000+ 错误信息
+"AppId is invalid" = "AppId不合法";
+"SDKKey does not support opening offline %@" = "SDK Key不支持打开离线%@";
+"ApiServer could not match initialized storeConfigs" = "当前%@所属环境与SDK初始化环境不匹配";
+"QRCode encrypt info is empty" = "二维码加密信息为空";
+"QRCode decrypted info is empty" = "二维码信息解密后为空";
+"QRCode data type error" = "二维码中数据类型错误";
+"QRCode type is missing" = "二维码中类型缺失";
+"QRCode type unknown" = "二维码未知的%@类型";
+"CodeId is invalid" = "CodeId不合法";
+"%@ is running, do not call multiple times" = "%@正在打开中，不要多次调用";
+"SDK not initialized" = "SDK未初始化";
+
+// 错码码12000+ 错误信息
+"Network exception, unable to connect to the server" = "网络异常，无法连接到服务器";
+"Service exception, request failed" = "服务异常，接口请求失败";
+"Server return data invalid" = "服务器返回数据异常";
+"Service exception, request %@ info failed" = "服务异常，%@详情接口请求失败";
+"Request library info failed" = "基础库详情接口请求失败";
+"Batch query for %@ details interface failed" = "批量查询%@详情接口请求失败";
+"Service exception, %@ info decrypt failed" = "服务异常，%@详情接口返回数据解密出错";
+"Service exception, library info decrypt failed" = "服务异常，基础库详情接口返回数据解密出错";
+"Decrypt data failed" = "服务异常，接口返回数据解密出错";
+"Service exception, %@ info return data invalid" = "服务异常，%@详情接口返回数据异常";
+"Service exception, library info return data invalid" = "服务异常，基础库详情接口返回数据异常";
+"Request failed, return data invalid" = "批量查询%@详情接口，返回数据异常";
+"%@ download url is empty" = "%@下载地址为空";
+"Subpackage download URL is empty" = "%@分包下载地址为空";
+"Library download url is empty" = "基础库下载地址为空";
+"Library version is empty" = "基础库版本号为空";
+"Mini-app file MD5 verification failed" = "%@整包文件MD5校验失败";
+"Mini-app subpackage file MD5 verification failed" = "%@分包文件MD5校验失败";
+"Library file MD5 verification failed" = "基础库MD5校验失败";
+"Download directory error, donwload failed" = "下载存储目录出错，无法下载";
+"Download failed" = "下载失败";
+
+// 错码码13000+ 错误信息
+"Service.html is missing, please confirm pakcage is compiled" = "service.html缺失，请检查代码包是否已编译";
+"Page no found, please connect the developer." = "该页面不存在，请与%@开发者联系";
+"The domain %@ is not registered. Please give feedback to developer by taking a functionality issue." = "域名 %@ 未登记，无法打开当前页面，请联系开发者反馈问题";
+"The domain %@ is in blacklist. Please give feedback to developer by taking a functionality issue." = "域名 %@ 已被运营端放入黑名单，无法打开当前页面，请联系开发者反馈问题";
+"Unzip library file failed." = "基础库解压失败";
+"offlineMiniprogramZipPath is empty" = "`offlineMiniprogramZipPath` 为空";
+"offlineFrameworkZipPath is empty" = "`offlineFrameworkZipPath`为空";
+"Unzip offline library file failed" = "离线基础库解压失败";
+"Offline %@ zip file is not exist" = "离线%@文件不存在";
+"Unzip offline %@ file failed" = "离线%@解压失败";
+"Could not find Mini-App with appId" = "Could not find Mini-App with appId";
+"Could not find running Mini-App with appId" = "Could not find running Mini-App with appId";
+"console is not ready" = "控制台未准备好";
+"Document name error" = "文件名出错";
+"The decompression directory cannot be empty" = "解压目录不能为空";
+
+// 20000+ title
+"Failed to open %@" = "%@不存在";
+"%@ not available" = "%@不可用";
+"Service not available" = "服务不可用";
+"File request failed" = "文件请求失败";
+"Qrcode expired" = "二维码已过期";
+"Trial Version Canceled" = "体验版本已取消";
+"No trial access" = "没有体验权限";
+"No develop access" = "没有开发权限";
+"No examine access" = "没有审核权限";
+"Request failed" = "请求失败";
+"No Available Library" = "无可用基础库";
+"SDK Fingerprint Verification Failed" = "SDK指纹校验失败";
+
+// 20000+ msg
+"%@ not found. Please check your App ID" = "%@不存在，请检查 AppID";
+"%@ is disabled" = "%@被禁用，相关服务暂不可用";
+"%@ and Host App are unbounded. Please verify your %@ is associated with a registered host app." = "%@与本应用的关联关系没有生效，请检查关联关系";
+"%@ is expired" = "%@已过有效期，相关服务暂不可用";
+"%@ version not found." = "%@版本错误";
+"Your host app bundle ID is invalid." = "BundleID 被禁用，相关服务暂不可用";
+"Host App is not registered with the platform." = "当前应用未在平台备案，请检查 SDK 初始化配置信息";
+"Host app has expired." = "当前应用已过期";
+"Host App is not associated with current %@" = "当前应用已经停止合作";
+"Database error" = "数据库内部错误";
+"Unsuccessful domain name resolution" = "获取域名失败，相关服务不可用";
+"Organization status verification exception" = "企业状态校验异常";
+"SDKKey not found. Please check SDK init info." = "SDKKey不属于当前服务器，请检查SDK初始化配置信息";
+"license exception" = "您当前的 license 异常，请联系管理员处理";
+"Organization account is frozen. Please verify your account in platform" = "%@所属企业账号状态异常，请登录平台处理";
+"%@ is removed" = "%@已下架，相关服务暂不可用";
+//"SDK key invalid. Please contact your administrator" = "SDK Key 出错，请联系管理员处理";
+"system  error" = "系统内部错误";
+"Your subscription service has reached its limit. Please consider to upgrade your service capacity" = "抱歉，由于资源不足，相关服务暂不可用";
+"Qrcode expired, please get it again" = "二维码已过期，请重新获取";
+"Server parse param failed" = "接口请求参数，后端解析失败";
+"Inner service api exception" = "内部服务接口异常";
+"The current SDK version does not have a corresponding available version of the library." = "当前SDK版本无可用版本基础库";
+"The SDK fingerprint failed to pass the verification. Please check if the SDK fingerprint information is correct." = "SDK指纹无法通过校验，请核对SDK指纹信息是否正确";
+"Request param invalid" = "接口请求参数异常";
+"SDK version format error" = "SDK版本号错误";
+"The current trial version has been canceled. Please set up the trial version again." = "当前体验版本已取消，请重新设置体验版本";
+"No trial access. Please contact the administrator." = "抱歉，您没有体验权限，请联系管理员";
+"No access. Please contact the administrator." = "抱歉，您没有权限，请联系管理员";
+"Request is failed." = "接口请求失败";
+"Host app has expired" = "当前应用已过期";
+"AppID is not associated with host app" = "未关联AppID，请联系管理员处理";
+"File upload failed" = "文件上传失败";
+"File server db exception" = "文件服务器db异常";
+"Do not have access to this file" = "没有该文件访问权限";
+"Failed to obtain file resources" = "获取文件资源失败";
+
+
+"Apple Maps" = "苹果地图";
+"Baidu Maps" = "百度地图";
+"Amap" = "高德地图";
+"Google Maps" = "谷歌地图";
+"Tencent Maps" = "腾讯地图";
+"Navigate to" = "导航到";
+
+"While Using the Mini-App" = "使用%@时";
+"While Using the Mini-App and After Leaving" = "使用%@时和离开后";
+
+"Allow While Using the Mini-App" = "使用%@时允许";
+"Allow While Using the Mini-App and After Leaving" = "使用%@时和离开后允许";
+
+"Confirm exit the Mini-App" = "确定退出%@";
+"Remote debugging parameter is illegal" = "远程调试参数不合法";
+"Remote debugging connection disconnected" = "远程调试连接已断开";
+"Remote debugging connection failed. Please check the network and try again" = "远程调试连接失败，请检查网络后重试";
+
+"Reminder" = "温馨提示";
+"The first %d files selected are valid" = "选择前%d个文件有效";
+
+// toast
+"apiServer number exceeds license limit" = "初始化服务器个数超过限制";
+
+"loading"="加载中";
+//"sdk configuration information is empty"="SDK配置信息为空";
+
+"Locating"="正在定位";
+"Using microphone"="正在使用麦克风";
+
+//picker
+"picker_year"="年";
+"picker_day"="日";
+"picker_month_1"="01月";
+"picker_month_2"="02月";
+"picker_month_3"="03月";
+"picker_month_4"="04月";
+"picker_month_5"="05月";
+"picker_month_6"="06月";
+"picker_month_7"="07月";
+"picker_month_8"="08月";
+"picker_month_9"="09月";
+"picker_month_10"="10月";
+"picker_month_11"="11月";
+"picker_month_12"="12月";
+
+//game keyboard
+"keyboard_done"="完成";
+"keyboard_next"="下一个";
+"keyboard_search"="搜索";
+"keyboard_go"="前往";
+"keyboard_send"="发送";
+
+"content copied"="内容已复制";
+
+// 语言国际化对齐的时候新增9月12号
+"I understand"="我已了解";
+"Screen cast"="已投屏";
+"exit"="  退出";
+"switch"="  切换";
+"Screen casting failed"="投屏失败";
+"Operating instructions"="操作指导";
+"recent connection"="最近连接";
+"Connectable devices"="可连接设备";
+"Select casting device"="选择投屏设备";
+"Luminance"="亮度";
+"Failed to save image to photo album"="图片保存到相册失败";
+"Image saved successfully to the album"="图片保存到相册成功";
+"play video"="播放视频";
+"playing"="正在播放";
+"The sound will continue to play after you lock the screen or leave the applet"="锁屏或离开%@后会继续播放声音";
+"Load failed, click to retry"="加载失败,点击重试";
+"user has not granted camera permission"="用户未授予相机权限";
+"pull to refresh"="下拉即可加载";
+"release Loading"="释放加载";
+"no access to photo album permission"="没有访问相册的权限";
+"save successfully"="保存成功";
+"save failure"="保存失败";
+"video download failed"="视频下载失败";
+"video loading failed"="视频加载失败";
+"picture saved successfully"="图片保存成功";
+"picture saved fail"="图片保存失败";
+"picture loading failed"="图片加载失败";
+"no permission to access the album"="没有访问相册的权限";
+"loading failed"="加载失败";
+"none"="无";
+"Privacy Guidelines"="隐私保护指引";
+"Failed to obtain data"="获取数据失败";
+"No privacy information exists"="隐私信息不存在";
+"File preview"="文件预览";
+"pull up to load"="上拉即可加载";
+"Trial"="体验版";
+"Developer"="开发者";
+"Version"="版本号";
+"upload time"="上传时间";
+"Notes"="版本说明";
+"start Trial"="前往体验版";
+"Unknown location"="未知地点";
+"My location"="我的位置";
+"Destination"="目的地";
+"Link copied"="链接已复制";
+"WeChat friends"="微信好友";
+"Wechat Moments"="朋友圈";
+"Copy Link"="复制链接";
+"Share to"="分享至";
+"cancel"="取消";
+
+"Service load timeout"="加载service超时";
+
+//投诉与反馈
+"dysfunctionType_cantOpenApp" = "无法打开小程序";
+"dysfunctionType_appFallBack" = "小程序闪退";
+"dysfunctionType_appStuck" = "卡顿";
+"dysfunctionType_wbScree" = "黑屏白屏";
+"dysfunctionType_crash" = "死机";
+"dysfunctionType_surfaceMis" = "界面错位";
+"dysfunctionType_surfaceLoadSlow" = "界面加载缓慢";
+"dysfunctionType_other" = "其他异常";
+
+"complaintType_pornographic" = "色情";
+"complaintType_errGuide" = "诱导";
+"complaintType_harass" = "骚扰";
+"complaintType_fake" = "欺诈";
+"complaintType_smearCampaign" = "恶意营销";
+"complaintType_inconsistenSvr" = "与服务类目不符";
+"complaintType_illegalCrime" = "违法犯罪";
+"complaintType_tort" = "侵权（冒名、诽谤、抄袭）";
+"complaintType_disinformation" = "不实信息";
+"complaintType_collPriInfo" = "隐私信息收集";
+"complaintType_other" = "其他";
+
+"select_type_of_feedback" = "请选择反馈的问题类型";
+"feedback_to_developers" = "向开发者反馈";
+"dysfunction" = "功能异常";
+"dysfunction_detail" = "向开发者反馈小程序功能 bug 或使用异常问题";
+"product_suggestions" = "产品建议";
+"product_suggestions_detail" = "向开发者反馈小程序使用建议或相关体验优化";
+"feedback_to_platform" = "向平台反馈";
+"complaints_report" = "投诉举报";
+"complaints_report_detail" = "如果您在使用小程序的过程中，遇到色情、诱导、骚扰等违法犯罪情况，请及时向平台举报";
+"instructions" = "相关说明";
+"instructions_detail" = "1.鉴于你需要发起投诉，为更好地核实和处理，你可主动向小程序开放平台上报可能存在的违规信息内容；\n2.该等上报的信息内容将用于、并仅用于本次投诉的举证核实；\n3.你应确保该等上报的信息内容获取来源真实、合法、有效，否则，由此产生的任何责任均由你独自承担，与小程序开放平台无关。";
+"upload_image_failed" = "上传图片失败";
+"complaint_app" = "投诉对象";
+"complaint_description" = "投诉描述";
+"evidence_screenshot" = "证据截图";
+"related_screenshots_optional" = "相关截图（选填）";
+"upload_4_images_with_maximum_10MB" = "最多上传 4 张图片，单张不超过 10MB";
+"enter_contact_information_to_contact_you" = "请输入有效的联系方式以便开发者联系你";
+"contact_information" = "联系方式";
+"email_or_phone_number" = "邮箱/手机号";
+"allow_platform_use_data" = "允许平台运营方使用小程序当前页面的数据作为投诉证据。";
+"<instructions>" = "《相关说明》";
+"submit" = "提交";
+"enter_feedback_description" = "请输入反馈描述";
+"enter_product_suggest" = "请输入产品建议";
+"enter_complain_content" = "请输入投诉内容";
+"provide_description_of_the_problem" = "请填写10个字以上的问题描述以便我们提供更好的帮助";
+"feedback_description_not_less_than_10_words" = "反馈描述不得少于10个字";
+"product_suggestion_not_less_than_10_words" = "产品建议不得少于10个字";
+"please_upload_screenshot_of_evidence" = "请上传证据截图";
+"feedback_has_been_submitted" = "反馈已提交";
+"feedback_has_been_submitted_detail" = "已将你的反馈内容提交给开发者";
+"complaint_successful" = "投诉成功";
+"complaint_successful_detail" = "感谢你的参与，我们坚决反对色情、暴力、欺诈等违规信息，我们会认真处理你的投诉，维护绿色、健康的网络环境。";
+"image_size_cannot_exceed_10_MB" = "图片大小不能超过 10MB";
+"uploading_image" = "图片上传中...";
+"limited_30_characters_tip" = "限英文字符、数字与标点符号，不超过30字符";

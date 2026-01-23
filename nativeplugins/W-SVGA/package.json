@@ -1,0 +1,44 @@
+{
+	"name": "W-SVGA",
+	"id": "W-SVGA",
+	"version": "1.0",
+	"description": "SVGA",
+	"_dp_type": "nativeplugin",
+	"_dp_nativeplugin": {
+		"android": {
+			"plugins": [
+				{
+					"type": "component",
+					"name": "w-svga",
+					"class": "io.dcloud.uniplugin.WSVGA"
+				}
+			],
+			"integrateType": "aar",
+			"dependencies": [
+                "com.github.svga:SVGAPlayer-Android:2.6.1"
+            ]
+		},
+		"ios": {
+            "plugins": [
+				{
+					"type": "component",
+					"name": "w-svga",
+					"class": "SvgaComponent"
+				}
+			],
+            "integrateType": "framework",
+            "frameworks": [
+				"MapKit.framework",
+				"SVGAPlayer.framework",
+				"Protobuf.framework",
+				"SSZipArchive.framework"
+			],
+			"embedFrameworks": [
+				"SVGAPlayer.framework",
+				"Protobuf.framework",
+				"SSZipArchive.framework"
+			],
+            "deploymentTarget": "9.0"
+        }
+	}
+}

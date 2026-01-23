@@ -1,0 +1,30 @@
+{
+	"name": "SandPayTypeModule",
+	"id": "SandPayTypeModule",
+	"version": "1.0.0",
+	"description": "全支付收银台安卓原生插件",
+	"_dp_type":"nativeplugin",
+	"_dp_nativeplugin":{
+		"android":{
+			"plugins":[
+				{
+					"type":"module",
+					"name":"SandPayTypeModule",
+					"class":"com.sand.qzf.paytypesdk.base.SandPayTypeModule"
+				}
+			],
+			"dependencies":{ 
+				
+			},
+			"useAndroidX": true,
+			"integrateType":"aar",
+			"abis": ["arm64-v8a","armeabi-v7a","x86"],
+			"minSdkVersion":"21",
+			"parameters": {
+				"jumpScheme_host": {
+					"placeholder": "SandPayTypeModule-jumpScheme_host"
+				}
+			}
+		}
+	}
+}

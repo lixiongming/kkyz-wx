@@ -1,0 +1,305 @@
+<template>
+  <view
+    class="tabber-box"
+    :style="{ height: $windowHeight + 'px' }"
+    :class="{
+      'tabber-box_black':
+        (current === 'home' && tbasIndex == 2) || current === 'explore',
+    }"
+  >
+    <view
+      class="home-box"
+      :style="{
+        height:
+          (current === 'publish'
+            ? $windowHeight - $safeAreaInsetsBottom
+            : $windowHeight - 50 - $safeAreaInsetsBottom) + 'px',
+      }"
+    >
+      <home
+        ref="homeRef"
+        key="homeRef"
+        class="home-item"
+        :class="{ show: current === 'home' }"
+        :style="{ height: $windowHeight - 50 - $safeAreaInsetsBottom + 'px' }"
+        v-if="loadComponents.indexOf('home') > -1"
+      ></home>
+      <explore
+        ref="exploreRef"
+        key="exploreRef"
+        class="home-item"
+        :class="{ show: current === 'explore' }"
+        :style="{ height: $windowHeight - 50 - $safeAreaInsetsBottom + 'px' }"
+        v-if="loadComponents.indexOf('explore') > -1"
+      ></explore>
+      <publish
+        ref="publishRef"
+        key="publishRef"
+        class="home-item"
+        :class="{ show: current === 'publish' }"
+        :style="{ height: $windowHeight + 'px' }"
+        v-if="loadComponents.indexOf('publish') > -1"
+      ></publish>
+      <message
+        ref="messageRef"
+        key="messageRef"
+        class="home-item"
+        :class="{ show: current === 'message' }"
+        :style="{ height: $windowHeight - 50 - $safeAreaInsetsBottom + 'px' }"
+        v-if="loadComponents.indexOf('message') > -1"
+      ></message>
+      <mine
+        ref="mineRef"
+        key="mineRef"
+        class="home-item"
+        :class="{ show: current === 'mine' }"
+        :style="{ height: $windowHeight - 50 - $safeAreaInsetsBottom + 'px' }"
+        v-if="loadComponents.indexOf('mine') > -1"
+      ></mine>
+    </view>
+    <i-tab-bar
+      class="home-tabbar"
+      :style="{
+        transform:
+          'translateY(' +
+          (isHideTabbar ? 50 + $safeAreaInsetsBottom : 0) +
+          'px)',
+      }"
+      :current="current"
+      @changeTabFn="changeTabFn"
+      @change="onTabbarChange"
+    ></i-tab-bar>
+  </view>
+</template>
+
+<script setup lang="ts">
+import { ref, nextTick } from "vue";
+import uerStore from "@/business/store/modules/home";
+import uerStore2 from "@/business/store/index";
+import {
+  onLoad,
+  onUnload,
+  onShow,
+  onReady,
+  onInit,
+  onHide,
+} from "@dcloudio/uni-app";
+import home from "@/views/pages/home/index.nvue";
+import mine from "@/views/pages/mine/index.nvue";
+import message from "@/views/pages/message/index.vue";
+import explore from "@/views/pages/explore/index.nvue";
+import publish from "@/views/pages/publish/index.vue";
+import iTabBar from "./i-tab-bar/index.vue";
+import { navigateTo } from "@/infrastructure/utils/system";
+import { paramsQuery } from "@/infrastructure/utils/util";
+
+const store = uerStore();
+const store2 = uerStore2();
+const $windowHeight = store2.windowHeight;
+const $safeAreaInsetsBottom = store2.$safeAreaInsetsBottom;
+const homeRef = ref();
+const exploreRef = ref();
+const publishRef = ref();
+const messageRef = ref();
+const mineRef = ref();
+const current = ref("home");
+const tabList = ref(["home", "explore", "publish", "message", "mine"]);
+const isHideTabbar = ref(false);
+const loadComponents = ref([]);
+// 首页切换状态
+const tbasIndex = ref(0);
+
+// 修改首页切换状态方法
+function changeTabFn(data) {
+   console.log(data)
+  tbasIndex.value = data;
+}
+
+onLoad((options) => {
+  console.log("tabbar----->", options);
+  let query = {};
+  if (options.path) {
+    let path = decodeURIComponent(options.path);
+    query = paramsQuery(path);
+    console.log("query---->", query);
+    console.log(path);
+    console.log(query);
+    let match = path.match(/\/views\/pages\/(.*)\/index.*?/);
+    console.log("match---->", match);
+    if (match) {
+      if (tabList.value.indexOf(match[1]) > -1) {
+        current.value = match[1];
+      } else {
+        current.value = "home";
+      }
+    } else {
+      current.value = "home";
+    }
+  }
+  loadComponents.value.push(current.value);
+  if (current.value === "publish") {
+    isHideTabbar.value = true;
+  } else {
+    isHideTabbar.value = false;
+  }
+	nextTick(() => {
+		let instance = getInstanceByCurrent(current.value)
+		// console.log(instance);
+		console.log("query---->", query)
+		instance.onLoad && instance.onLoad(query);
+    // if (current.value == "home") {
+    //   uni.$emit("enterHome");
+    // }
+		if (options.page) {
+			// setTimeout(() => {
+			// 	navigateTo(options.page)
+			// }, 500)
+		}
+	})
+});
+// onReady(() => {
+//   nextTick(() => {
+//     let instance = getInstanceByCurrent(current.value);
+// 	if(!instance) return;
+//     instance.onReady && instance.onReady();
+//   });
+// });
+onShow(() => {
+  nextTick(() => {
+    let instance = getInstanceByCurrent(current.value);
+    if(!instance) return;
+      instance.onShow && instance.onShow();
+      if (current.value == "home") {
+      uni.$emit("enterHome");
+    }
+    });
+});
+onHide(() => {
+  let instance = getInstanceByCurrent(current.value);
+  if(!instance) return;
+  instance.onHide && instance.onHide();
+  if (current.value == 'home') {
+    uni.$emit("outHome", "");
+  }
+});
+
+// 根据选择current,返回对应组件实例
+function getInstanceByCurrent(cur) {
+  switch (cur) {
+    case "home":
+      return homeRef.value;
+    case "mine":
+      return mineRef.value;
+    case "message":
+      return messageRef.value;
+    case "explore":
+      return exploreRef.value;
+    case "publish":
+      return publishRef.value;
+    default:
+      break;
+  }
+}
+
+function onTabbarChange(cur) {
+  console.log(
+    loadComponents.value,
+    "结果-----》",
+    loadComponents.value.indexOf(cur)
+  );
+  let oldinstance = getInstanceByCurrent(current.value);
+  let curinstance = getInstanceByCurrent(cur);
+  
+  oldinstance.onHide && oldinstance.onHide();
+  if (current.value == 'home') {
+    uni.$emit("outHome", "");
+  }
+  // uni.$emit(current.value + '-hide');
+
+  isHideTabbar.value = false;
+  if (cur === "publish") {
+    isHideTabbar.value = true;
+  } else {
+    isHideTabbar.value = false;
+  }
+  if (loadComponents.value.indexOf(cur) > -1) {
+    console.log("二次进入----》", curinstance.onShow);
+    curinstance.onShow && curinstance.onShow();
+    if (cur == 'home') {
+      // setTimeout(() => {
+      //   uni.$emit("enterHome");
+      // })
+      nextTick(() => {
+        uni.$emit("enterHome");
+      })
+    }
+  } else {
+    loadComponents.value.push(cur);
+    // console.log("1", oldinstance, oldinstance)
+    nextTick(() => {
+      curinstance = getInstanceByCurrent(cur);
+      // console.log("2", oldinstance, oldinstance)
+      curinstance.onLoad && curinstance.onLoad({});
+      curinstance.onShow && curinstance.onShow();
+      if (cur == 'home') {
+        uni.$emit("enterHome");
+      }
+    });
+  }
+
+  // uni.setNavigationBarColor({
+  // 	frontColor: ['message', 'square'].indexOf(current) > -1 ? '#000000' : '#ffffff',
+  // 	backgroundColor: ['message', 'square'].indexOf(current) > -1 ? '#ffffff' : '#000000',
+  // })
+
+  current.value = cur;
+  store2.tabbar_name = cur;
+  cur == "home" ? uni.$emit("enterHome") : uni.$emit("outHome", "");
+}
+</script>
+
+<style lang="less" scoped>
+.tabber-box {
+  background-color: #ffffff;
+}
+.tabber-box_black {
+  background-color: #1e1f20;
+}
+.main_page {
+  width: 750rpx;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+// .home-box {
+//     width: 750rpx;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     overflow: hidden;
+// }
+.home-item {
+  width: 750rpx;
+  position: absolute;
+  top: 0;
+  left: -750rpx;
+  opacity: 0;
+}
+.show {
+  left: 0;
+  opacity: 1;
+}
+.home-tabbar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  transform: translateY(0);
+  // transition-property: transform, background-color;
+  // transition-duration: 0.2s;
+  // transition-timing-function: ease-in-out;
+  z-index: 99;
+  // padding-bottom: constant(safe-area-inset-bottom);
+  // padding-bottom: env(safe-area-inset-bottom);
+}
+</style>

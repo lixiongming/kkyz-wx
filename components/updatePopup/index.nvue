@@ -1,0 +1,252 @@
+<template>
+	<view class="update-popup flex flex-ac jc-ct" :style="{ width: windowWidth + 'px',height: windowHeight + 'px' }" @click="outerClick">
+		<view class="warp">
+			<view class="main">
+				<image src="../../static/images/home/shade.png" class="shade"></image>
+				<image src="../../static/images/home/update.png" class="title"></image>
+				<text class="tips flex flex-ac jc-ct">NEW VERSION</text>
+				<!-- <text class="versions">{{props.updateResult.title}}</text>
+				<text class="content">{{props.updateResult.contents}}</text>
+				<view class="download flex flex-ac jc-ct" v-if="percent>0">
+					<text class="load">下载中：</text>
+					<progress :percent="percent" stroke-width="10" border-radius="10rpx" backgroundColor="#C4F6FC" activeColor="#10AEFF" class="progress" show-info/>
+				</view>
+				<view class="update flex flex-ac jc-ct" @click="updateApp" v-if="percent==0"
+					:style="{ marginTop: (props.updateResult.is_mandatory? 104 : 40)+ 'rpx' }">
+					<text class="txt">{{props.updateResult.type!='wgt'&&props.updateResult.platform.includes('iOS')?'立即跳转更新':'立即更新'}}</text>
+				</view>
+				<text class="no-update flex flex-ac jc-ct" v-if="!props.updateResult.is_mandatory&&percent==0"
+					@click="close">暂不更新</text> -->
+			</view>
+			<image src="../../static/images/home/rocket.png" class="rockete"></image>
+		</view>
+	</view>
+</template>
+
+<script setup lang="ts">
+	import { ref, onMounted, defineProps, defineEmits } from "vue";
+	const props = defineProps(["updateResult"]);
+	const emits = defineEmits(["closeUpdate"]);
+	const systemInfo = uni.getSystemInfoSync();
+	const windowWidth = ref(systemInfo.screenWidth);
+	const windowHeight = ref(systemInfo.screenHeight);
+	const percent =ref(0);
+
+	const close = () => {
+		emits('closeUpdate')
+	}
+
+	// 外层点击
+	function outerClick(e) {
+		console.log("触发外层")
+		e.stopPropagation();
+	}
+ 
+	/**
+	 * 升级
+	 */
+	const updateApp = () => {
+		const {
+			title, // 标题
+			contents, // 升级内容
+			is_mandatory, // 是否强制更新
+			url, // 安装包下载地址
+			platform, // 安装包平台
+			type // 安装包类型
+		} = props.updateResult;
+
+		// let isWGT = type === 'wgt'
+		// let isiOS = !isWGT ? platform.includes('iOS') : false;
+		// let confirmText = isiOS ? '立即跳转更新' : '立即下载更新'
+		
+		// console.log(platform.includes('iOS'),"platform.includes('iOS')")
+		// // 安装包下载
+		// if (isiOS) {
+		// 	plus.runtime.openURL(url);
+		// 	return;
+		// }
+
+		// // uni.showToast({
+		// // 	title: '后台下载中……',
+		// // 	duration: 1000
+		// // });
+
+		// // wgt 和 安卓下载更新
+	    // const downloadTask = uni.downloadFile({
+		// 	url,
+		// 	success: res => {
+		// 		if (res.statusCode !== 200) {
+		// 			percent.value = 0;
+		// 			console.error('下载安装包失败', err);
+		// 			return;
+		// 		}
+		// 		// 下载好直接安装，下次启动生效
+		// 		plus.runtime.install(res.tempFilePath, {
+		// 			force: true
+		// 		}, () => {
+		// 			percent.value = 0;
+		// 			if (is_mandatory) {
+		// 				//更新完重启app
+		// 				plus.runtime.restart();
+		// 				return;
+		// 			}
+		// 			uni.showModal({
+		// 				title: '安装成功是否重启？',
+		// 				success: res => {
+		// 					if (res.confirm) {
+		// 						//更新完重启app
+		// 						plus.runtime.restart();
+		// 					}
+		// 				}
+		// 			});
+		// 		}, err => {
+		// 			percent.value = 0
+		// 			uni.showModal({
+		// 				title: '更新失败',
+		// 				content: err.message,
+		// 				showCancel: false
+		// 			});
+		// 		});
+		// 	}
+		// });
+		// downloadTask.onProgressUpdate((progress)=> {
+		// 	percent.value = progress.progress;
+		// 	console.log('下载进度' + progress.progress);
+		// 	// console.log('已下载数据长度' + progress.totalBytesWritten);
+		// 	// console.log('预期需要下载的数据总长度' + progress.totalBytesExpectedToWrite);
+		// 	// 更新UI上的进度条或显示进度信息
+		// 	//具体UI风格可自己实现
+		// })
+	}
+</script>
+<style scoped>
+	.update-popup {
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 99999999;
+		overflow: hidden;
+		background-color: pink;
+	}
+
+	.warp {
+		position: relative;
+		width: 622rpx;
+		height: 776rpx;
+		padding-top: 52rpx;
+		margin-top: -52rpx;
+	}
+
+	.main {
+		position: relative;
+		width: 622rpx;
+		height: 720rpx;
+		flex-shrink: 0;
+		border-radius: 48rpx;
+		background: #FFFFFF;
+	}
+
+	.shade {
+		width: 622rpx;
+		height: 192rpx;
+	}
+
+	.title {
+		position: absolute;
+		top: 64rpx;
+		left: 48rpx;
+		width: 280rpx;
+		height: 56rpx;
+	}
+
+	.rockete {
+		position: absolute;
+		top: 0;
+		right: 0rpx;
+		width: 240rpx;
+		height: 248rpx;
+	}
+
+	.tips {
+		position: absolute;
+		top: 144rpx;
+		left: 48rpx;
+		color: #ffffff;
+		font-family: "PingFang SC";
+		font-size: 20rpx;
+		font-style: normal;
+		font-weight: 600;
+		width: 174rpx;
+		height: 32rpx;
+		line-height: 32rpx;
+		border-radius: 16rpx;
+		background: linear-gradient(to right, #1CDAFE, #1A5AFF);
+		text-align: center;
+	}
+
+	.versions {
+		margin-top: 32rpx;
+		position: relative;
+		height: 40rpx;
+		width: 622rpx;
+		padding: 0 48rpx;
+		color: #111111;
+		font-size: 28rpx;
+		font-weight: 600;
+	}
+
+	.content {
+		margin-top: 24rpx;
+		width: 622rpx;
+		padding: 0 48rpx;
+		height: 192rpx;
+		color: #111111;
+		font-size: 28rpx;
+		font-weight: 400;
+	}
+
+	.update {
+		margin-top: 40rpx;
+		width: 526rpx;
+		height: 88rpx;
+		line-height: 88rpx;
+		flex-shrink: 0;
+		border-radius: 16rpx;
+		background-image: linear-gradient(to right, #1CDAFE, #00C2FF);
+		margin-left: 48rpx;
+	}
+
+	.txt {
+		color: #ffffff;
+		font-size: 32rpx;
+		font-weight: 500;
+		text-align: center;
+	}
+
+	.no-update {
+		margin-top: 24rpx;
+		width: 526rpx;
+		height: 48rpx;
+		line-height: 48rpx;
+		color: #777777;
+		font-size: 24rpx;
+		font-weight: 400;
+		margin-left: 48rpx;
+		background: #ffffff;
+		text-align: center;
+	}
+	.download{
+		margin-top: 150rpx;
+		padding:0 48rpx;
+	}
+	.load{
+		color: #111111;
+		font-size: 28rpx;
+		font-weight: 600;
+	}
+	.progress{
+        overflow: hidden;
+	}
+</style>

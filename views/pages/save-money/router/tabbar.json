@@ -1,0 +1,10 @@
+[ 
+	{
+		"path": "views/pages/save-money/views/pages/tabbar/index",
+		"style": {
+		"navigationBarTitleText": "赚省星球",
+		"navigationBarTextStyle": "black",
+		"backgroundColor": "#FFFFFF"
+	}}
+]
+

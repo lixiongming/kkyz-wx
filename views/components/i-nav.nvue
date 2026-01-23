@@ -1,0 +1,106 @@
+<template>
+  <view
+    class="i-nav"
+    :style="{
+      height: statusBarHeight + 44 + 'px',
+      paddingTop: statusBarHeight + 'px',
+      background: bgcolor,
+      zIndex: '10',
+      ...extraStyles
+    }"
+  >
+    <uni-nav-bar :border="false" :backgroundColor="bgcolor">
+      <template v-slot:left>
+        <slot name="left">
+          <uni-icons
+            type="arrow-left"
+            :color="iconColor"
+            size="25"
+            @click="back"
+          />
+        </slot>
+      </template>
+      <view class="title_txt">
+        <text class="txt_cs" :style="{ color: fontColor }">{{ title }}</text>
+      </view>
+      <template v-slot:right>
+        <slot name="right"></slot>
+      </template>
+    </uni-nav-bar>
+  </view>
+</template>
+
+<script setup lang="ts">
+import { ref, defineProps, defineEmits } from "vue";
+import uerStore2 from "@/business/store/index";
+
+const store2 = uerStore2();
+const statusBarHeight = store2.$statusBarHeight;
+const emit = defineEmits(["Custom_Event"]);
+const props = defineProps({
+  title: {
+    type: String,
+    default: "",
+  },
+  bgcolor: {
+    type: String,
+    default: "#fff",
+  },
+  fontColor: {
+    type: String,
+    default: "#111111",
+  },
+  iconColor: {
+    type: String,
+    default: "#111111",
+  },
+  Custom: {
+    type: Boolean,
+    default: false,
+  },
+  extraStyles: {
+    type: Object,
+    default: () => ({})
+  }
+});
+
+// 返回
+function back() {
+  if (props.Custom) {
+    emit("Custom_Event");
+  } else {
+    uni.navigateBack();
+  }
+}
+</script>
+
+<style lang="less" scoped>
+.i-nav {
+  // height: 88rpx;
+  // height: 160rpx;
+  // background: #fff;
+}
+.title_txt {
+  color: #111111;
+  text-align: center;
+  font-size: 32rpx;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 88rpx;
+  height: 88rpx;
+}
+.txt_cs {
+  line-height: 88rpx;
+  text-align: center;
+  color: #111111;
+  font-size: 32rpx;
+  font-style: normal;
+  font-weight: 600;
+}
+/deep/.uni-navbar__header {
+  padding: 0 32rpx;
+}
+/deep/.title_txt {
+  flex: 1;
+}
+</style>

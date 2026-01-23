@@ -1,0 +1,337 @@
+{
+    "name" : "看看宇宙",
+    "appid" : "__UNI__5E7CD8B",
+    "description" : "看看宇宙视频招聘APP",
+    "versionName" : "3.4.2",
+    "versionCode" : 342,
+    "transformPx" : false,
+    "app-plus" : {
+        "softinputMode" : "adjustPan",
+        //安卓加上忽略版本会有布局问题， 应该是uniapp的bug
+        "compatible" : {
+            "ignoreVersion" : true
+        },
+        // APP-VUE分包，可提APP升启动速度，2.7.12开始支持，兼容微信小程序分包方案，默认关闭
+        "optimization" : {
+            "subPackages" : true
+        },
+        "safearea" : {
+            "bottom" : {
+                "offset" : "none"
+            }
+        },
+        "splashscreen" : {
+            "alwaysShowBeforeRender" : false,
+            "waiting" : true,
+            "autoclose" : true,
+            "delay" : 0
+        },
+        "usingComponents" : true,
+        "nvueCompiler" : "uni-app",
+        "compilerVersion" : 3,
+        "runmode" : "liberate",
+        "modules" : {
+            "OAuth" : {},
+            "Share" : {},
+            "VideoPlayer" : {},
+            "Maps" : {},
+            "Geolocation" : {},
+            "Statistic" : {},
+            "Speech" : {},
+            "Camera" : {},
+            "Barcode" : {},
+            "Webview-x5" : {},
+            "Push" : {}
+        },
+        "distribute" : {
+            "distribute" : {
+                "orientation" : [ "portrait-primary" ] //重力感应、横竖屏配置
+            },
+            "android" : {
+                "permissionExternalStorage" : {
+                    "request" : "none",
+                    "prompt" : "应用保存运行状态等信息，需要获取读写手机存储（系统提示为访问设备上的照片、媒体内容和文件）权限，请允许。"
+                },
+                "permissionPhoneState" : {
+                    "request" : "none",
+                    "prompt" : "为保证您正常、安全地使用，需要获取设备识别码（部分手机提示为获取手机号码）使用权限，请允许。"
+                },
+                "permissions" : [
+                    "<uses-permission android:name=\"android.permission.ACCESS_CHECKIN_PROPERTIES\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+                    "<uses-permission android:name=\"android.permission.CAMERA\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.INTERNET\"/>",
+                    "<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
+                    "<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
+                    "<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
+                    "<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+                    "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
+                    "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+                    "<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>",
+                    "<uses-permission android:name=\"android.permission.CLIPBOARD_READ\"/>",
+                    "<uses-permission android:name=\"android.permission.CLIPBOARD_WRITE\"/>"
+                ],
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ],
+                "schemes" : "kkyz,kankan,kankanyz",
+                "targetSdkVersion" : 30,
+                "minSdkVersion" : 21
+            },
+            "ios" : {
+                "urltypes" : "kkyz,kankan,kankanyz",
+                "capabilities" : {
+                    "entitlements" : {
+                        "com.apple.developer.associated-domains" : [ "applinks:applink.kankanyz.com" ]
+                    }
+                },
+                "privacyDescription" : {
+                    "NSUserTrackingUsageDescription" : "请放心，开启权限不会获取您在其他站点的隐私信息，该权限仅用于标识设备并保障服务安全与提示浏览体验",
+                    "NSLocationWhenInUseUsageDescription" : "用于定位当前城市，方便获取当前城市的职位信息等，如不允许，可手动选择城市。",
+                    "NSPhotoLibraryUsageDescription" : "用于上传头像、资质以及发布动态视频等，如不允许，以上操作将无法从相册进行。",
+                    "NSCameraUsageDescription" : "用于拍摄头像、资质、扫码以及拍摄动态视频等，如不允许，以上内容将无法进行拍摄。",
+                    "NSMicrophoneUsageDescription" : "用于拍摄动态视频、简历视频以及职位视频等，如不允许，以上内容将无法进行拍摄。",
+                    "NSLocalNetworkUsageDescription" : "",
+                    "NSPhotoLibraryAddUsageDescription" : "用于保存头像、资质以及保存动态视频等，如不允许，以上内容将无法保存至本地。",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "用于定位当前城市，方便获取当前城市的职位信息等，如不允许，可手动选择城市。",
+                    "NSLocationAlwaysUsageDescription" : "用于定位当前城市，方便获取当前城市的职位信息等，如不允许，可手动选择城市。"
+                },
+                "shortcuts" : [
+                    {
+                        "type" : "scan",
+                        "title" : "扫一扫",
+                        // "icontype" : "UIApplicationShortcutIconTypeCapturePhoto",
+                        "iconfile" : "/static/app-plus/images/scan.png"
+                    },
+                    {
+                        "type" : "search",
+                        "title" : "搜索",
+                        // "icontype" : "UIApplicationShortcutIconTypeSearch",
+                        "iconfile" : "/static/app-plus/images/search.png"
+                    }
+                ],
+                "dSYMs" : false
+            },
+            "sdkConfigs" : {
+                "ad" : {},
+                "oauth" : {
+                    "univerify" : {},
+                    "weixin" : {
+                        "appid" : "wxe73bee1f41b04868",
+                        "appsecret" : "d18665e20a70a73d8d4ecc0a8a96e3ad",
+                        "UniversalLinks" : "https://applink.kankanyz.com/uni-universallinks/__UNI__5E7CD8B/"
+                    },
+                    "apple" : {}
+                },
+                "push" : {
+                    "unipush" : {
+                        "version" : "2",
+                        "offline" : false,
+                        "icons" : {
+                            "small" : {
+                                "hdpi" : "static/images/home/kkyzLogo.png"
+                            }
+                        }
+                    }
+                },
+                "share" : {
+                    "weixin" : {
+                        "appid" : "wxe73bee1f41b04868",
+                        "UniversalLinks" : "https://applink.kankanyz.com/uni-universallinks/__UNI__5E7CD8B/"
+                    }
+                },
+                "speech" : {},
+                "maps" : {
+                    "amap" : {
+                        "appkey_ios" : "ef8640af60dafa53888ab4911b7a08e7",
+                        "appkey_android" : "048a9ac39c82c9ff11e5222c475c825c"
+                    }
+                },
+                "geolocation" : {
+                    "amap" : {
+                        "__platform__" : [ "ios", "android" ],
+                        "appkey_ios" : "ef8640af60dafa53888ab4911b7a08e7",
+                        "appkey_android" : "048a9ac39c82c9ff11e5222c475c825c"
+                    }
+                },
+                "statics" : {}
+            },
+            "icons" : {
+                "android" : {
+                    "hdpi" : "unpackage/res/icons/72x72.png",
+                    "xhdpi" : "unpackage/res/icons/96x96.png",
+                    "xxhdpi" : "unpackage/res/icons/144x144.png",
+                    "xxxhdpi" : "unpackage/res/icons/192x192.png"
+                },
+                "ios" : {
+                    "appstore" : "unpackage/res/icons/1024x1024.png",
+                    "ipad" : {
+                        "app" : "unpackage/res/icons/76x76.png",
+                        "app@2x" : "unpackage/res/icons/152x152.png",
+                        "notification" : "unpackage/res/icons/20x20.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "proapp@2x" : "unpackage/res/icons/167x167.png",
+                        "settings" : "unpackage/res/icons/29x29.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "spotlight" : "unpackage/res/icons/40x40.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png"
+                    },
+                    "iphone" : {
+                        "app@2x" : "unpackage/res/icons/120x120.png",
+                        "app@3x" : "unpackage/res/icons/180x180.png",
+                        "notification@2x" : "unpackage/res/icons/40x40.png",
+                        "notification@3x" : "unpackage/res/icons/60x60.png",
+                        "settings@2x" : "unpackage/res/icons/58x58.png",
+                        "settings@3x" : "unpackage/res/icons/87x87.png",
+                        "spotlight@2x" : "unpackage/res/icons/80x80.png",
+                        "spotlight@3x" : "unpackage/res/icons/120x120.png"
+                    }
+                }
+            },
+            "splashscreen" : {
+                "androidStyle" : "default",
+                "useOriginalMsgbox" : true,
+                "android" : {
+                    "hdpi" : "unpackage/res/launch/launch2.9.png",
+                    "xhdpi" : "unpackage/res/launch/launch2.9.png",
+                    "xxhdpi" : "unpackage/res/launch/launch2.9.png"
+                },
+                "iosStyle" : "storyboard",
+                "ios" : {
+                    "storyboard" : "unpackage/res/CustomStoryboard.zip"
+                }
+            }
+        },
+        "nativePlugins" : {
+            "W-SVGA" : {
+                "__plugin_info__" : {
+                    "name" : "W-SVGA",
+                    "description" : "SVGA",
+                    "platforms" : "Android,iOS",
+                    "url" : "",
+                    "android_package_name" : "",
+                    "ios_bundle_id" : "",
+                    "isCloud" : false,
+                    "bought" : -1,
+                    "pid" : "",
+                    "parameters" : {}
+                }
+            }
+        },
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "quickapp" : {},
+    "mp-weixin" : {
+        "appid" : "wx29df62cbac3abc9a",
+        "setting" : {
+            "urlCheck" : false,
+            "es6" : true,
+            "minified" : true,
+            "postcss" : true
+        },
+        "optimization" : {
+            "subPackages" : true
+        },
+        "lazyCodeLoading" : "requiredComponents",
+        "usingComponents" : true,
+        "permission" : {
+            "scope.userLocation" : {
+                "desc" : "你的位置信息将用于小程序定位"
+            }
+        },
+        "uniStatistics" : {
+            "enable" : true
+        },
+        "requiredPrivateInfos" : [ "chooseLocation", "getLocation" ],
+        "embeddedAppIdList" : [ "wx8abaf00ee8c3202e" ],
+        "share" : true
+    },
+    "mp-alipay" : {
+        "usingComponents" : true,
+        "component2" : true,
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "mp-qq" : {
+        "optimization" : {
+            "subPackages" : true
+        },
+        "appid" : "",
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "mp-baidu" : {
+        "usingComponents" : true,
+        "appid" : "",
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "mp-toutiao" : {
+        "usingComponents" : true,
+        "appid" : "",
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "h5" : {
+        "template" : "",
+        "router" : {
+            "mode" : "hash",
+            "base" : ""
+        },
+        "optimization" : {
+            "treeShaking" : {
+                "enable" : false
+            }
+        },
+        "title" : "看看宇宙",
+        "sdkConfigs" : {
+            "maps" : {
+                "amap" : {
+                    "key" : "",
+                    "securityJsCode" : "",
+                    "serviceHost" : ""
+                }
+            }
+        },
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "_spaceID" : "fd506df0-da4a-426f-b10e-a99755de5eae",
+    "uniStatistics" : {
+        "enable" : true
+    },
+    "mp-jd" : {
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "mp-kuaishou" : {
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "mp-lark" : {
+        "uniStatistics" : {
+            "enable" : true
+        }
+    },
+    "fallbackLocale" : "zh-Hans",
+    "locale" : "zh-Hans",
+    "vueVersion" : "3"
+}

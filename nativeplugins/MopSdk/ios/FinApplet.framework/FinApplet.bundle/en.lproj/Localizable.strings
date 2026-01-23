@@ -1,0 +1,433 @@
+"OK" = "OK";
+"Back" = "Back";
+"Done" = "Done";
+"Close" = "Close";
+"Sorry" = "Sorry";
+"Cancel" = "Cancel";
+"Setting" = "Setting";
+"Photos" = "Photos";
+"Videos" = "Videos";
+"Preview" = "Preview";
+"Full image" = "Full image";
+"Processing..." = "Processing...";
+"Unable to load image" = "Unable to load image";
+"Unable to load video" = "Unable to load video";
+"Synchronizing photos from iCloud" = "Synchronizing photos from iCloud";
+"Synchronizing video from iCloud" = "Synchronizing video from iCloud";
+"Can not use camera" = "Can not use camera";
+"Can not choose both video and photo" = "Can not choose both video and photo";
+"Can not choose both photo and GIF" = "Can not choose both photo and GIF";
+"Select the video when in multi state, we will handle the video as a photo" = "Select the video when in multi state, we will handle the video as a photo";
+"Can not jump to the privacy settings page, please go to the settings page by self, thank you" = "Can not jump to the privacy settings page, please go to the settings page by self, thank you";
+
+"Select a maximum of %zd photos" = "Select a maximum of %zd photos";
+"Select a minimum of %zd photos" = "Select a minimum of %zd photos";
+"Allow %@ to access your album in \"Settings -> Privacy -> Photos\"" = "Allow %@ to access your album in \"Settings -> Privacy -> Photos\"";
+"Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\"" = "Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\"";
+
+"Apply" = "Apply";
+"Reject" = "Reject";
+"Allow" = "Allow";
+"Not Allow" = "Not Allow";
+
+"Use your calendar" = "Use your calendar";
+
+"Obtain your location info" = "Obtain your location info";
+"Obtain your profile photo" = "Obtain your profile photo";
+"Access and save pictures or videos on device" = "Access and save pictures or videos on device";
+"Use your camera" = "Use your camera";
+"Use your microphone" = "Use your microphone";
+"Use your bluetooth" = "Use your bluetooth";
+"Use your addressBook" = "Use your addressBook";
+"Obtain your phoneNumber" = "Obtain your phoneNumber";
+"Obtain your userProfile" = "Obtain your userProfile";
+
+"Selected for %ld seconds" = "Selected for %ld seconds";
+"Allow %@ to access your all photos" = "%@ can only access selected photos. Allow access \"All Photos\"";
+"Add more accessible photos" = "Add more \n accessible photos";
+"Edit" = "Edit";
+
+"Loading failed, please try again later" = "Loading failed, please try again later";
+
+"Forward To" = "Forward To";
+"Settings" = "Settings";
+"Feedback" = "Feedback";
+"Restart" = "Restart";
+"Open Debug" = "Open Debug";
+"Close Debug" = "Close Debug";
+"Share" = "Share";
+"Wechat" = "Wechat";
+"Add Favorite" = "Add Favorite";
+"Cancel Favorite" = "Cancel Favorite";
+"Add To Desktop" = "Add To Desktop";
+
+"Add Favorite Success" = "Add Favorite Success";
+"Add Favorite Failure" = "Add Favorite Failure";
+"Cancel Favorite Success" = "Cancel Favorite Success";
+"Cancel Favorite Failure" = "Cancel Favorite Failure";
+"Add to desktop failure" = "Add to desktop failure";
+
+"%@ Authorizations Management" = "%@ Authorizations Management";
+"Without using your personal information and authority" = "Without using your personal information and authority";
+"No %@" = "No %@";
+
+"Allow \"%@\" to use" = "Allow \"%@\" to use";
+
+"\"%@\"does not use any permissions" = "\"%@\"does not use any permissions";
+
+"Search location" = "Search location";
+"Location" = "Location";
+"Not showing location" = "Not showing location";
+"Search nearby" = "Search nearby";
+"Office Building" = "Office Building";
+
+"User info" = "User info";
+"Location info" = "Location info";
+"Background Location info" = "Background Location info";
+"Mobile address book" = "Mobile address book";
+"Microphone" = "Microphone";
+"Camera" = "Camera";
+"Album" = "Album";
+"Calendar" = "Calendar";
+"Buletooth" = "Buletooth";
+"QR Code" = "QR Code";
+"Phone" = "Phone";
+
+"About" = "About";
+"Basic Info" = "Basic Info";
+"Account Owner" = "Account Owner";
+"Description" = "Description";
+"Version" = "Version";
+"Notes" = "Notes";
+"Labels" = "Labels";
+"Global Privacy Statement" = "Global Privacy Statement";
+"statement and" = " and ";
+"The developer of this Mini-App confirm that it has not processed any information of the user in any way. If there is any subsequent handling of user information, Mini-App Privacy Guidelines will be updated in a timely manner. If you find that the developer has mishandled your privacy information, you may click here to take a issue." = "The developer of this %@ confirm that it has not processed any information of the user in any way. If there is any subsequent handling of user information, %@ Privacy Guidelines will be updated in a timely manner. If you find that the developer has mishandled your privacy information, you may click here to take a issue.";
+"Statement of Service" = "Statement of Service";
+"Developers handle your personal information in strict accordance with %@ Privacy Guidelines, and you may take a issue if  you find that a developer has mishandled your private information." = "Developers handle your personal information in strict accordance with %@ , and you may %@ if  you find that a developer has mishandled your private information.";
+"The Mini-App is provided to you by the developer, who assumes full responsibility for the authenticity, legality and validity of the information content, data material and its operation of this service." = "The %@ is provided to you by the developer, who assumes full responsibility for the authenticity, legality and validity of the information content, data material and its operation of this service.";
+"Third-party user information authorization description" = "Third-party user information authorization description";
+"%@ Privacy Guidelines" = " %@ Mini Program Privacy Policy";
+"Custom Privacy Guidelines" = " %@ ";
+"take a issue" = "take a issue";
+"App disable feedback function" = "App disable feedback function";
+"Customize Privacy Statement" = "Upon your authorization, the %@ developers (including %@ developers on behalf of development services and developers of embedded plugins in %@) will %@ to provide services for you. The developer shall process your personal information in strict accordance with %@. In the event of the developer's improper use of your personal information, please %@ to us.";
+"Default Privacy Statement" = "Upon your authorization, the %@ developers (including %@ developers on behalf of development services and developers of embedded plugins in %@) will %@ to provide services for you. The developer shall process your personal information in strict accordance with network security law and personal information protection norms and other relevant laws and regulations when collecting, storing, processing or using user privacy and data. In the event of the developer's improper use of your personal information, please %@ to us.";
+" and %@ others" = " and %@ others";
+
+//"Recents" = "Recents";
+"Save Image" = "Save Image";
+"Save Video" = "Save Video";
+"Save" = "Save";
+
+"Effective after reopening" = "Effective after reopening";
+
+"Failed to get the picture" = "Failed to get the picture";
+"This device does not have an album" = "This device does not have an album";
+"Failed to process image" = "Failed to process image";
+"No QR code/barcode found" = "No QR code/barcode found";
+"No QR code found" = "No QR code found";
+"No barcode found" = "No barcode found";
+"No Data Matrix code found" = "No Data Matrix code found";
+"No pdf417 code found" = "No pdf417 code found";
+"Only QR codes are supported below iOS 11" = "Only QR codes are supported below iOS 11";
+"Please tap to continue" = "Please tap to continue";
+
+"Reload" = "Reload";
+
+// title
+"Library download failed" = "Library download failed";
+"%@ download failed" = "%@ download failed";
+"Page no found" = "Page no found";
+"Unregistered domain" = "Unregistered domain";
+"Blacklisted domain" = "Blacklisted domain";
+"Failed to obtain trial version" = "Failed to obtain trial version";
+
+// FATErrorCodeUnknown 90000
+"Unknown Error" = "Unknown Error";
+"Param is invalid" = "Param is invalid";
+
+// 错码码10000+ 错误信息
+"SDK init failed" = "SDK init failed";
+"No network connection" = "No network connection";
+"sdk configuration request failed" = "sdk configuration request failed";
+"Unsupported device type" = "Unsupported device type";
+"Usable device number limit" = "Usable device number limit";
+"Domain check failed in SDK configuration" = "Domain check failed in SDK configuration";
+"QRCode format invalid" = "QRCode format invalid";
+"QRCode server could not match initialized storeConfigs" = "QRCode server could not match initialized storeConfigs";
+
+// 错码码11000+ 错误信息
+"AppId is invalid" = "AppId is invalid";
+"SDKKey does not support opening offline %@" = "SDKKey does not support opening offline %@";
+"ApiServer could not match initialized storeConfigs" = "ApiServer could not match initialized storeConfigs";
+"QRCode encrypt info is empty" = "QRCode encrypt info is empty";
+"QRCode decrypted info is empty" = "QRCode decrypted info is empty";
+"QRCode data type error" = "QRCode data type error";
+"QRCode type is missing" = "QRCode type is missing";
+"QRCode type unknown" = "QRCode type unknown";
+"CodeId is invalid" = "CodeId is invalid";
+"%@ is running, do not call multiple times" = "%@ is running, do not call multiple times";
+"SDK not initialized" = "SDK not initialized";
+
+// 错码码12000+ 错误信息
+"Network exception, unable to connect to the server" = "Network exception, unable to connect to the server";
+"Service exception, request failed" = "Service exception, request failed";
+"Server return data invalid" = "Server return data invalid";
+"Service exception, request %@ info failed" = "Service exception, request %@ info failed";
+"Request library info failed" = "Request library info failed";
+"Batch query for %@ details interface failed" = "Batch query for %@ details interface failed";
+"Service exception, %@ info decrypt failed" = "Service exception, %@ info decrypt failed";
+"Service exception, library info decrypt failed" = "Service exception, library info decrypt failed";
+"Decrypt data failed" = "Decrypt data failed";
+"Service exception, %@ info return data invalid" = "Service exception, %@ info return data invalid";
+"Service exception, library info return data invalidr" = "Service exception, library info return data invalid";
+"Request failed, return data invalid" = "Request failed, return data invalid";
+"%@ download url is empty" = "%@ download url is empty";
+"Subpackage download URL is empty" = "Subpackage download URL is empty";
+"Library download url is empty" = "Library download url is empty";
+"Library version is empty" = "Library version is empty";
+"Mini-app file MD5 verification failed" = "%@ file MD5 verification failed";
+"Mini-app subpackage file MD5 verification failed" = "%@ subpackage file MD5 verification failed";
+"Library file MD5 verification failed" = "Library file MD5 verification failed";
+"Download directory error, donwload failed" = "Download directory error, donwload failed";
+"Download failed" = "Download failed";
+
+// 错码码13000+ 错误信息
+"Service.html is missing, please confirm pakcage is compiled" = "Service.html is missing, please confirm pakcage is compiled";
+"Page no found, please connect the developer." = "Page no found, please connect the developer.";
+"The domain %@ is not registered. Please give feedback to developer by taking a functionality issue." = "The domain %@ is not registered. Please give feedback to developer by taking a functionality issue.";
+"The domain %@ is in blacklist. Please give feedback to developer by taking a functionality issue." = "The domain %@ is in blacklist. Please give feedback to developer by taking a functionality issue.";
+"Unzip library file failed." = "Unzip library file failed.";
+"offlineMiniprogramZipPath is empty" = "offlineMiniprogramZipPath is empty";
+"offlineFrameworkZipPath is empty" = "offlineFrameworkZipPath is empty";
+"Unzip offline library file failed" = "Unzip offline library file failed";
+"Offline %@ zip file is not exist" = "Offline %@ zip file is not exist";
+"Unzip offline %@ file failed" = "Unzip offline %@ file failed";
+"Could not find Mini-App with appId" = "Could not find Mini-App with appId";
+"Could not find running Mini-App with appId" = "Could not find running Mini-App with appId";
+"console is not ready" = "console is not ready";
+"Document name error" = "Document name error";
+"The decompression directory cannot be empty" = "The decompression directory cannot be empty";
+
+// 20000+ title
+"Failed to open %@" = "Failed to open %@";
+"%@ not available" = "%@ not available";
+"Service not available" = "Service not available";
+"File request failed" = "File request failed";
+"Qrcode expired" = "Qrcode expired";
+"Trial Version Canceled" = "Trial Version Canceled";
+"No trial access" = "No trial access";
+"No develop access" = "No develop access";
+"No examine access" = "No examine access";
+"Request failed" = "Request failed";
+"No Available Library" = "No Available Library";
+"SDK Fingerprint Verification Failed" = "SDK Fingerprint Verification Failed";
+// 20000+ msg
+"%@ not found. Please check your App ID" = "%@ not found. Please check your App ID";
+"%@ is disabled" = "%@ is disabled";
+"%@ and Host App are unbounded. Please verify your %@ is associated with a registered host app." = "%@ and Host App are unbounded. Please verify your %@ is associated with a registered host app.";
+"%@ is expired" = "%@ is expired";
+"%@ version not found." = "%@ version not found.";
+"Your host app bundle ID is invalid." = "Your host app bundle ID is invalid.";
+"Host App is not registered with the platform." = "Host App is not registered with the platform.";
+"Host app has expired." = "Host app has expired.";
+"Host App is not associated with current %@" = "Host App is not associated with current %@";
+"Database error" = "Database error";
+"Unsuccessful domain name resolution" = "Unsuccessful domain name resolution";
+"Organization status verification exception" = "Organization status verification exception";
+"SDKKey not found. Please check SDK init info." = "SDKKey not found. Please check SDK init info.";
+"license exception" = "license exception";
+"Organization account is frozen. Please verify your account in platform" = "Organization account is frozen. Please verify your account in platform";
+"%@ is removed" = "%@ is removed";
+//"SDK key invalid. Please contact your administrator" = "SDK key invalid. Please contact your administrator";
+"system  error" = "system  error";
+"Your subscription service has reached its limit. Please consider to upgrade your service capacity" = "Your subscription service has reached its limit. Please consider to upgrade your service capacity";
+"Qrcode expired, please get it again" = "Qrcode expired, please get it again";
+"Server parse param failed" = "Server parse param failed";
+"Inner service api exception" = "Inner service api exception";
+"The current SDK version does not have a corresponding available version of the library." = "The current SDK version does not have a corresponding available version of the library.";
+"The SDK fingerprint failed to pass the verification. Please check if the SDK fingerprint information is correct." = "The SDK fingerprint failed to pass the verification. Please check if the SDK fingerprint information is correct.";
+"Request param invalid" = "Request param invalid";
+"SDK version format error" = "SDK version format error";
+"The current trial version has been canceled. Please set up the trial version again." = "The current trial version has been canceled. Please set up the trial version again.";
+"No trial access. Please contact the administrator." = "No trial access. Please contact the administrator.";
+"No access. Please contact the administrator." = "No access. Please contact the administrator.";
+"Request is failed." = "Request is failed.";
+"Host app has expired" = "Host app has expired";
+"AppID is not associated with host app" = "AppID is not associated with host app";
+"File upload failed" = "File upload failed";
+"File server db exception" = "File server db exception";
+"Do not have access to this file" = "Do not have access to this file";
+"Failed to obtain file resources" = "Failed to obtain file resources";
+
+"Apple Maps" = "Apple Maps";
+"Baidu Maps" = "Baidu Maps";
+"Amap" = "Amap";
+"Google Maps" = "Google Maps";
+"Tencent Maps" = "Tencent Maps";
+"Navigate to" = "Navigate to";
+
+"While Using the Mini-App" = "While Using the %@";
+"While Using the Mini-App and After Leaving" = "While Using the %@ and After Leaving";
+
+"Allow While Using the Mini-App" = "Allow While Using the %@";
+"Allow While Using the Mini-App and After Leaving" = "Allow While Using the %@ and After Leaving";
+
+"Confirm exit the Mini-App" = "Confirm exit the %@";
+"Remote debugging parameter is illegal" = "Remote debugging parameter is illegal";
+"Remote debugging connection disconnected" = "Remote debugging connection disconnected";
+"Remote debugging connection failed. Please check the network and try again" = "Remote debugging connection failed. Please check the network and try again";
+
+"Reminder" = "Reminder";
+"The first %d files selected are valid" = "The first %d files selected are valid";
+
+// toast
+"apiServer number exceeds license limit" = "apiServer number exceeds license limit";
+
+//"loading"="loading";
+"sdk configuration information is empty"="sdk configuration information is empty";
+
+"Locating"="Locating";
+"Using microphone"="Using microphone";
+
+//picker
+"picker_year"="";//这里就是空
+"picker_day"="";//这里就是空
+"picker_month_1"="Jan";
+"picker_month_2"="Feb";
+"picker_month_3"="Mar";
+"picker_month_4"="Apr";
+"picker_month_5"="May";
+"picker_month_6"="Jun";
+"picker_month_7"="Jul";
+"picker_month_8"="Aug";
+"picker_month_9"="Sep";
+"picker_month_10"="Oct";
+"picker_month_11"="Nov";
+"picker_month_12"="Dec";
+
+//game keyboard
+"keyboard_done"="done";
+"keyboard_next"="next";
+"keyboard_search"="search";
+"keyboard_go"="go";
+"keyboard_send"="send";
+
+"content copied"="content copied";
+
+
+// 语言国际化对齐的时候新增9月12号
+"I understand"="I understand";
+"Screen cast"="Screen cast";
+"exit"="exit";
+"switch"="switch";
+"Screen casting failed"="Screen casting failed";
+"Operating instructions"="Guide";
+"recent connection"="recent connection";
+"Connectable devices"="Connectable devices";
+"Select casting device"="Select casting device";
+"Luminance"="Luminance";
+"Failed to save image to photo album"="Failed to save image to photo album";
+"Image saved successfully to the album"="Image saved successfully to the album";
+"play video"="play video";
+"playing"="playing";
+"The sound will continue to play after you lock the screen or leave the applet"="The sound will continue to play after you lock the screen or leave the applet";
+"Load failed, click to retry"="Load failed, click to retry";
+"user has not granted camera permission"="user has not granted camera permission";
+"pull to refresh"="pull to refresh";
+"release Loading"="release Loading";
+"no access to photo album permission"="no access to photo album permission";
+"save successfully"="save successfully";
+"save failure"="save failure";
+"video download failed"="video download failed";
+"video loading failed"="video loading failed";
+"picture saved successfully"="picture saved successfully";
+"picture saved successfully"="picture saved successfully";
+"picture saved fail"="picture saved fail";
+"picture loading failed"="picture loading failed";
+"no permission to access the album"="no permission to access the album";
+"loading failed"="loading failed";
+"none"="none";
+"Privacy Guidelines"="Privacy Guidelines";
+"Failed to obtain data"="Failed to obtain data";
+"No privacy information exists"="No privacy information exists";
+"File preview"="File preview";
+"pull up to load"="pull up to load";
+"Trial"="Trial";
+"Developer"="Developer";
+"Version"="Version";
+"upload time"="upload time";
+"Notes"="Notes";
+"start Trial"="前往体验版";
+"Unknown location"="未知地点";
+"My location"="My location";
+"Destination"="Destination";
+"Link copied"="Link copied";
+"WeChat friends"="WeChat friends";
+"Wechat Moments"="Wechat Moments";
+"Copy Link"="Copy Link";
+"Share to"="Share to";
+"cancel"="cancel";
+
+"Service load timeout"="Loading service is expired.";
+
+//投诉与反馈
+"dysfunctionType_cantOpenApp" = "Unable to open mini-app";
+"dysfunctionType_appFallBack" = "Crashed mini-app";
+"dysfunctionType_appStuck" = "Statter";
+"dysfunctionType_wbScree" = "Blank screen";
+"dysfunctionType_crash" = "Crashed phone";
+"dysfunctionType_surfaceMis" = "Misalignment of UI elements";
+"dysfunctionType_surfaceLoadSlow" = "Slow load speed";
+"dysfunctionType_other" = "Other problem";
+
+"complaintType_pornographic" = "Pornography";
+"complaintType_errGuide" = "Misleading";
+"complaintType_harass" = "Harassing";
+"complaintType_fake" = "Fraud";
+"complaintType_smearCampaign" = "Smear campaign";
+"complaintType_inconsistenSvr" = "Does not match sercvice category";
+"complaintType_illegalCrime" = "Crime and illegal activities";
+"complaintType_tort" = "Infringement (impersonation, defamation, plagiarism)";
+"complaintType_disinformation" = "False information";
+"complaintType_collPriInfo" = "Collect private information";
+"complaintType_other" = "Other";
+
+"select_type_of_feedback" = "Please select the type of feedback";
+"feedback_to_developers" = "Feedback to developers";
+"dysfunction" = "dysfunction";
+"dysfunction_detail" = "Feedback to developers about bugs or abnormal usage issues with the mini-app functionality";
+"product_suggestions" = "Product Suggestions";
+"product_suggestions_detail" = "Provide feedback to developers on mini-app usage suggestions or related experience optimization";
+"feedback_to_platform" = "Feedback to platform";
+"complaints_report" = "Complaints Report";
+"complaints_report_detail" = "If you encounter illegal and criminal situations such as pornography, inducement, harassment, etc. while using the mini-app, please report to the platform in a timely manner";
+"instructions" = "Instructions";
+"instructions_detail" = "1. Considering that you need to initiate a complaint, in order to better verify and handle it, you can proactively report any potential violations to the mini-app open platform;\n2. The information reported will be used for, and only for, the evidentiary verification of this complaint;\n3. You should ensure that the source of the reported information is true, legal, and valid. Otherwise, any responsibility arising from this will be solely borne by you and is not related to the mini-app open platform.";
+"upload_image_failed" = "Upload Image Failed";
+"complaint_app" = "Complaint mini-app";
+"complaint_description" = "Complaint description";
+"evidence_screenshot" = "Evidence screenshot";
+"related_screenshots_optional" = "Related screenshots (optional)";
+"upload_4_images_with_maximum_10MB" = "Upload up to 4 images, with a maximum of 10MB per image";
+"enter_contact_information_to_contact_you" = "Please enter a valid contact information for developers to contact you";
+"contact_information" = "Contact Info";
+"email_or_phone_number" = "Email/phone number";
+"allow_platform_use_data" = "Allow platform operators to use the data from the current page of the mini-app as evidence for complaints.";
+"<instructions>" = "<Instructions>";
+"submit" = "Submit";
+"enter_feedback_description" = "Please enter the feedback description";
+"enter_product_suggest" = "Please enter the product suggest";
+"enter_complain_content" = "Please enter the complaint content";
+"provide_description_of_the_problem" = "Please provide a description of the problem in at least 10 words so that we can provide better assistance";
+"feedback_description_not_less_than_10_words" = "Feedback description not less than 10 words";
+"product_suggestion_not_less_than_10_words" = "Product suggestion not less than 10 words";
+"please_upload_screenshot_of_evidence" = "Please upload screenshots of the evidence";
+"feedback_has_been_submitted" = "Feedback has been submitted";
+"feedback_has_been_submitted_detail" = "Your feedback has been submitted to the developer";
+"complaint_successful" = "Complaint Successful";
+"complaint_successful_detail" = "Thank you for your participation. We firmly oppose illegal information such as pornography, violence, and fraud. We will handle your complaint seriously and maintain a green and healthy online environment.";
+"image_size_cannot_exceed_10_MB" = "Image size cannot exceed 10MB";
+"uploading_image" = "Uploading Image...";
+"limited_30_characters_tip" = "Limited to English characters, numbers, and punctuation, up to 30 characters";

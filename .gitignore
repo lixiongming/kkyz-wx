@@ -1,0 +1,12 @@
+.idea.hbuilderx
+unpackage/cache
+unpackage/debug
+unpackage/dist
+unpackage/release
+unpackage/resources
+unpackage/*.zip
+node_modules
+config.js
+*/.DS_Store
+.DS_Store
+.hbuilderx

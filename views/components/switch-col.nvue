@@ -1,0 +1,47 @@
+<template>
+  <view class="switch-item">
+    <view class="switch-title">
+      <text class="title-text">{{ data.title }}</text>
+    </view>
+    <uv-switch
+      v-model="data.value"
+      :activeValue="activeValue"
+      :inactiveValue="inactiveValue"
+      activeColor="#1CDAFE"
+      inactiveColor="#ddd"
+      size="20"
+      @change="switchChanges"
+    ></uv-switch>
+  </view>
+</template>
+
+<script setup lang="ts">
+import { ref, defineProps } from "vue";
+const props = defineProps(["data", "inactiveValue", "activeValue"]);
+const emits = defineEmits(["edit"]);
+
+const switchChanges = (e: any) => {
+  emits("edit", props.data);
+};
+</script>
+<style scoped lang="less">
+.switch-item {
+  padding: 32rpx 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  .switch-title {
+    flex: 1;
+    .title-text {
+      color: #111111;
+      font-size: 28rpx;
+      font-weight: 500;
+    }
+  }
+  .switch-action {
+    width: 88rpx;
+    // transform: translateX(-16rpx);
+  }
+}
+</style>

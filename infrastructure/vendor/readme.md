@@ -1,0 +1,1 @@
+这里放不能直接 npm install 或通过 hbuilderX 插件市场加载的插件
